@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دانشنامه مرد عنکبوتی | راهنمای کامیک‌های اسپایدرمن</title>
+<meta name="description" content="معرفی کامل سری‌های کامیک مرد عنکبوتی: خلاصه، تاریخ انتشار، ارتباط با دنیای اسپایدرمن و دسته‌بندی‌های مختلف">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23E62429'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%230C0C0F'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23F5F1E8' stroke-width='2'/%3E%3Cpath d='M32 2v60M2 32h60M11 11l42 42M53 11L11 53' stroke='%23F5F1E8' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&family=Anton&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0C0C0F; --card:#15151B; --card2:#1C1C24; --line:#2A2A34;
+    --red:#E62429; --red-dark:#A31217; --cream:#F5F1E8; --muted:#A09AAE;
+    --gold:#F5B301; --blue:#2E6BE6;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:'Vazirmatn',system-ui,sans-serif;
+    background:var(--bg); color:var(--cream);
+    background-image:radial-gradient(rgba(255,255,255,.045) 1px, transparent 1.4px);
+    background-size:22px 22px;
+    min-height:100vh;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 18px 70px;}
+
+  /* ===== header ===== */
+  header.hero{
+    text-align:center; padding:52px 0 10px; position:relative;
+  }
+  .hero .kicker{
+    display:inline-block; font-size:13px; font-weight:700; color:var(--cream);
+    background:var(--red); padding:6px 18px; border-radius:999px;
+    letter-spacing:.5px; margin-bottom:18px;
+    box-shadow:0 6px 24px rgba(230,36,41,.35);
+  }
+  .hero h1{
+    font-size:clamp(34px,7vw,58px); font-weight:900; margin:0 0 6px; line-height:1.25;
+  }
+  .hero h1 .en{
+    display:block; font-family:'Anton',sans-serif; font-weight:400;
+    font-size:clamp(30px,6vw,52px); letter-spacing:3px; color:var(--red);
+    direction:ltr; margin-top:4px;
+    text-shadow:3px 3px 0 rgba(230,36,41,.22);
+  }
+  .hero p.sub{color:var(--muted); font-size:15px; margin:10px 0 0; line-height:2;}
+  .hero .web{width:74px;height:74px;margin:0 auto 8px;display:block;opacity:.9;}
+
+  /* ===== controls ===== */
+  .controls{
+    position:sticky; top:0; z-index:50; padding:14px 0;
+    background:linear-gradient(var(--bg) 78%, transparent);
+  }
+  .search-row{display:flex; gap:10px; margin-bottom:12px;}
+  .search{
+    flex:1; display:flex; align-items:center; gap:10px;
+    background:var(--card); border:1.5px solid var(--line); border-radius:16px;
+    padding:0 16px;
+  }
+  .search svg{width:19px;height:19px;flex:none;opacity:.6;}
+  .search input{
+    flex:1; background:none; border:none; outline:none; color:var(--cream);
+    font-family:inherit; font-size:15px; padding:14px 0; min-width:0;
+  }
+  .search input::placeholder{color:#6d6879;}
+  .fav-toggle{
+    flex:none; display:flex; align-items:center; gap:8px;
+    background:var(--card); border:1.5px solid var(--line); border-radius:16px;
+    color:var(--cream); font-family:inherit; font-size:14px; font-weight:700;
+    padding:0 18px; cursor:pointer; transition:all .2s ease;
+  }
+  .fav-toggle.active{background:var(--red); border-color:var(--red); color:#fff;}
+  .fav-toggle:active{transform:scale(.95);}
+  .chips{display:flex; gap:8px; overflow-x:auto; padding:2px 2px 8px; scrollbar-width:none;}
+  .chips::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:none; font-family:inherit; font-size:13.5px; font-weight:700; color:var(--muted);
+    background:var(--card); border:1.5px solid var(--line); border-radius:999px;
+    padding:9px 18px; cursor:pointer; transition:all .2s ease; white-space:nowrap;
+  }
+  .chip.active{background:var(--cream); border-color:var(--cream); color:#14141a;}
+  .chip:active{transform:scale(.94);}
+  .row2{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .select{
+    flex:1; min-width:150px; background:var(--card); border:1.5px solid var(--line);
+    border-radius:14px; color:var(--cream); font-family:inherit; font-size:13.5px; font-weight:700;
+    padding:11px 14px; outline:none; cursor:pointer;
+  }
+  .count{font-size:13px; color:var(--muted); font-weight:500;}
+
+  /* ===== grid ===== */
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:16px; margin-top:18px;
+  }
+  .card{
+    background:linear-gradient(160deg,var(--card2),var(--card));
+    border:1.5px solid var(--line); border-radius:20px; padding:20px;
+    cursor:pointer; position:relative; overflow:hidden;
+    transition:transform .25s cubic-bezier(.32,.72,0,1), border-color .25s ease, box-shadow .25s ease;
+    animation:cardIn .5s cubic-bezier(.32,.72,0,1) backwards;
+  }
+  @keyframes cardIn{from{opacity:0; transform:translateY(16px) scale(.98);} to{opacity:1; transform:none;}}
+  .card:hover{transform:translateY(-4px); border-color:var(--red); box-shadow:0 14px 34px rgba(230,36,41,.16);}
+  .card:active{transform:scale(.98);}
+  .card::before{
+    content:''; position:absolute; top:0; right:0; left:0; height:5px;
+    background:linear-gradient(90deg,var(--red),var(--red-dark));
+    opacity:0; transition:opacity .25s ease;
+  }
+  .card:hover::before{opacity:1;}
+  .card .en{
+    font-family:'Anton',sans-serif; font-size:21px; letter-spacing:1px; direction:ltr; text-align:left;
+    color:var(--cream); line-height:1.35; margin:0 0 4px; padding-left:34px;
+  }
+  .card .fa{font-size:16px; font-weight:800; margin:0 0 8px;}
+  .card .meta{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;}
+  .badge{
+    font-size:11.5px; font-weight:700; padding:4px 11px; border-radius:999px;
+    background:#23232c; color:var(--muted); border:1px solid var(--line);
+  }
+  .badge.red{background:rgba(230,36,41,.14); color:#ff8a8e; border-color:rgba(230,36,41,.4);}
+  .badge.gold{background:rgba(245,179,1,.13); color:var(--gold); border-color:rgba(245,179,1,.4);}
+  .badge.blue{background:rgba(46,107,230,.13); color:#8fb0ff; border-color:rgba(46,107,230,.4);}
+  .card .about{font-size:13.5px; color:var(--muted); line-height:1.95; margin:0;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .bm{
+    position:absolute; top:16px; left:16px; width:38px; height:38px; border-radius:50%;
+    background:#23232c; border:1.5px solid var(--line); color:var(--muted);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    transition:all .2s ease; z-index:2;
+  }
+  .bm svg{width:17px;height:17px;}
+  .bm.on{background:var(--red); border-color:var(--red); color:#fff;}
+  .bm:active{transform:scale(.88);}
+  .empty{
+    text-align:center; color:var(--muted); padding:60px 20px; font-size:15px; line-height:2;
+    grid-column:1/-1;
+  }
+
+  /* ===== modal ===== */
+  .overlay{
+    position:fixed; inset:0; z-index:100; background:rgba(5,5,8,.78);
+    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    display:flex; align-items:flex-end; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+  }
+  .overlay.open{opacity:1; pointer-events:auto;}
+  .sheet{
+    width:100%; max-width:640px; max-height:88vh; overflow-y:auto;
+    background:var(--card); border:1.5px solid var(--line); border-bottom:none;
+    border-radius:26px 26px 0 0; padding:26px 24px 40px;
+    transform:translateY(60px); transition:transform .35s cubic-bezier(.32,.72,0,1);
+  }
+  .overlay.open .sheet{transform:none;}
+  .grab{width:44px;height:5px;border-radius:99px;background:var(--line);margin:0 auto 18px;}
+  .sheet .en{font-family:'Anton',sans-serif; font-size:26px; letter-spacing:1px; direction:ltr; text-align:left; margin:0 0 2px; line-height:1.3;}
+  .sheet h2{font-size:21px; font-weight:900; margin:0 0 10px;}
+  .sheet .meta{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px;}
+  .kv{
+    display:flex; gap:10px; padding:11px 0; border-bottom:1px dashed var(--line);
+    font-size:14px; line-height:1.9;
+  }
+  .kv:last-child{border-bottom:none;}
+  .kv .k{flex:none; width:118px; color:var(--red); font-weight:800; font-size:13px;}
+  .kv .v{color:var(--cream);}
+  .kv .v.muted{color:var(--muted);}
+  .chars{display:flex; flex-wrap:wrap; gap:6px;}
+  .close-x{
+    position:sticky; top:0; float:left; width:40px; height:40px; border-radius:50%;
+    background:#23232c; border:1.5px solid var(--line); color:var(--cream);
+    font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .note-box{
+    margin-top:16px; background:rgba(245,179,1,.07); border:1.5px solid rgba(245,179,1,.3);
+    border-radius:16px; padding:14px 16px; font-size:13.5px; line-height:2; color:var(--cream);
+  }
+  .note-box b{color:var(--gold);}
+
+  footer{margin-top:44px; text-align:center; color:#6d6879; font-size:12.5px; line-height:2.1; padding:0 10px;}
+  footer b{color:var(--muted);}
+  @media (min-width:700px){
+    .overlay{align-items:center; padding:20px;}
+    .sheet{border-radius:26px; border-bottom:1.5px solid var(--line);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <svg class="web" viewBox="0 0 64 64" fill="none" stroke="#E62429" stroke-width="2">
+      <circle cx="32" cy="32" r="6"/>
+      <path d="M32 2v60M2 32h60M11 11l42 42M53 11L11 53"/>
+      <path d="M32 12c8 8 8 32 0 40M32 12c-8 8-8 32 0 40M12 32c8-8 32-8 40 0M12 32c8 8 32 8 40 0"/>
+    </svg>
+    <span class="kicker">راهنمای فارسی کامیک‌ها</span>
+    <h1>دانشنامه مرد عنکبوتی<span class="en">SPIDER-MAN COMICS GUIDE</span></h1>
+    <p class="sub">معرفی مهم‌ترین سری‌های کامیک اسپایدرمن — خلاصه، تاریخ انتشار، ارتباط با دنیای عنکبوتی و شخصیت‌ها.<br>فقط معرفی؛ هیچ دانلود یا فایلی ارائه نمی‌شود.</p>
+  </header>
+
+  <div class="controls">
+    <div class="search-row">
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#A09AAE" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="جست‌وجو بین سری‌ها، شخصیت‌ها، نویسنده‌ها…" autocomplete="off">
+      </label>
+      <button class="fav-toggle" id="favToggle" aria-label="علاقه‌مندی‌ها">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        ذخیره‌شده‌ها
+      </button>
+    </div>
+    <div class="chips" id="typeChips"></div>
+    <div class="row2">
+      <select class="select" id="charSel"><option value="">همه شخصیت‌ها</option></select>
+      <select class="select" id="eraSel"><option value="">همه دوره‌ها</option></select>
+      <select class="select" id="sortSel">
+        <option value="yearAsc">قدیمی → جدید</option>
+        <option value="yearDesc">جدید → قدیم</option>
+        <option value="sales">پرفروش‌ترین‌ها</option>
+        <option value="pop">محبوب‌ترین‌ها</option>
+      </select>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    <b>درباره رتبه‌بندی‌ها:</b> «پرفروش‌ترین‌ها» بر اساس رکوردهای ثبت‌شده حراج و فروش تک‌شماره‌هاست و تقریبی است.<br>
+    «محبوب‌ترین‌ها» بر اساس تأثیر فرهنگی و بازخورد خواننده‌هاست. این فهرست مهم‌ترین سری‌هاست، نه تک‌تک شماره‌ها.<br>
+    تمام اطلاعات جنبه معرفی دارد — هیچ فایل یا دانلودی ارائه نمی‌شود.
+  </footer>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var CHARS = {peter:'پیتر پارکر', miles:'مایلز مورالز', gwen:'اسپایدر-گوئن', miguel:'میگل اوهارا (۲۰۹۹)', noir:'اسپایدرمن نوآر', jessica:'جسیکا درو', ben:'بن رایلی', kaine:'کین', otto:'دکتر اختاپوس', mayday:'میدی پارکر', pavitr:'پاویتر پرابهکار', silk:'سیلک', anya:'آنیا کورازون', ham:'اسپایدر-هم', peni:'پنی پارکر'};
+var TYPES = {main:'سری اصلی', limited:'مینی‌سری', event:'ایونت', story:'خط داستانی', alt:'دنیای آلترناتیو'};
+var ERAS = {silver:'عصر نقره‌ای', bronze:'عصر برنز', dark:'عصر تاریک', modern:'هزاره جدید', current:'معاصر'};
+
+var DATA = [
+{id:'af15', en:'AMAZING FANTASY #15', fa:'اولین حضور مرد عنکبوتی', years:'۱۹۶۲', y0:1962, issues:'تک‌شماره', writer:'استن لی و استیو دیتکو', type:'limited', era:'silver', chars:['peter'], sales:10, pop:10,
+about:'شماره‌ای که همه‌چیز از آن شروع شد؛ اولین حضور پیتر پارکر در دنیای کامیک.',
+summary:'پیتر پارکر، نوجوان خجالتی و نابغه، توسط یک عنکبوت رادیواکتیوی گزیده می‌شود و قدرت‌های خارق‌العاده به دست می‌آورد. اول از قدرتش برای شهرت استفاده می‌کند، اما بعد از مرگ عمو بن با جمله معروف «قدرت زیاد، مسئولیت زیاد می‌آورد» تبدیل به قهرمان می‌شود.',
+connection:'نقطه صفر دنیای اسپایدرمن؛ تمام نسخه‌ها و سری‌های بعدی از این داستان ۱۱ صفحه‌ای منشعب شدند.',
+note:'رکورد گرون‌ترین کامیک تاریخ: نسخه‌ای با درجه ۹.۶ در سال ۲۰۲۱ به قیمت ۳.۶ میلیون دلار فروخته شد.'},
+{id:'asm1', en:'THE AMAZING SPIDER-MAN', fa:'اسپایدرمن شگفت‌انگیز', years:'۱۹۶۳ تا ۱۹۹۸', y0:1963, issues:'شماره ۱ تا ۴۴۱', writer:'استن لی، استیو دیتکو، جان رومیتا و…', type:'main', era:'silver', chars:['peter'], sales:9, pop:10,
+about:'سری اصلی و مادر تمام داستان‌های مرد عنکبوتی؛ بیش از ۳۵ سال انتشار مداوم.',
+summary:'ادامه ماجراهای پیتر پارکر از دبیرستان تا دانشگاه و زندگی بزرگسالی؛ نبرد با گرین گابلین، دکتر اختاپوس، ونوم و ده‌ها دشمن دیگر، در کنار چالش‌های زندگی روزمره مثل اجاره خانه و عشق.',
+connection:'ستون فقرات دنیای اسپایدرمن؛ تقریباً تمام شخصیت‌های مهم (گوئن، مری جین، ونوم، کارنیج) اول اینجا معرفی شدند.',
+note:'شماره ۱ این سری از ارزشمندترین کامیک‌های کلکسیونی است.'},
+{id:'gwen122', en:'THE NIGHT GWEN STACY DIED', fa:'شبی که گوئن استیسی مرد', years:'۱۹۷۳', y0:1973, issues:'ASM شماره ۱۲۱ و ۱۲۲', writer:'گری کانوی', type:'story', era:'bronze', chars:['peter','gwen'], sales:8, pop:10,
+about:'یکی از تأثیرگذارترین و غم‌انگیزترین داستان‌های تاریخ کامیک.',
+summary:'گرین گابلین گوئن استیسی، عشق پیتر، را از بالای پل پرت می‌کند. اسپایدرمن با تارش او را می‌گیرد، اما ضربه ناگهانی گردن او را می‌شکند؛ پیتر می‌فهمد که خودش ناخواسته باعث مرگ او شده. در ادامه، گابلین هم کشته می‌شود.',
+connection:'پایان عصر نقره‌ای کامیک؛ برای اولین بار قهرمان نتوانست عزیزش را نجات دهد و این رویداد سال‌ها روان پیتر را تحت تأثیر قرار داد.',
+note:'شماره ۱۲۱ از شماره‌های کلکسیونی ارزشمند اسپایدرمن است.'},
+{id:'spectacular', en:'THE SPECTACULAR SPIDER-MAN', fa:'اسپایدرمن تماشایی', years:'۱۹۷۶ تا ۱۹۹۸', y0:1976, issues:'شماره ۱ تا ۲۶۳', writer:'نویسندگان مختلف', type:'main', era:'bronze', chars:['peter'], sales:5, pop:7,
+about:'دومین سری ماهانه اسپایدرمن که هم‌زمان با سری اصلی منتشر می‌شد.',
+summary:'ماجراهای موازی پیتر پارکر با تمرکز بیشتر بر زندگی شخصی و روابطش؛ داستان‌های خیابانی‌تر و صمیمی‌تر نسبت به سری اصلی.',
+connection:'بخشی از پیوستگی اصلی؛ رویدادهای مهمی مثل «مرگ ژان دوولف» و بخش‌هایی از «آخرین شکار کریون» اینجا روایت شدند.'},
+{id:'secretwars', en:'SECRET WARS', fa:'جنگ‌های مخفی', years:'۱۹۸۴', y0:1984, issues:'۱۲ شماره', writer:'جیم شوتر', type:'event', era:'bronze', chars:['peter'], sales:7, pop:8,
+about:'اولین ایونت بزرگ مارول؛ جایی که اسپایدرمن لباس سیاهش را به دست آورد.',
+summary:'قهرمانان و تبهکاران مارول به یک سیاره دور برده می‌شوند تا بجنگند. لباس پیتر پاره می‌شود و او از یک دستگاه فضایی «لباس» جدیدی می‌گیرد؛ لباسی زنده که بعداً معلوم می‌شود سیمبیوت فضایی است.',
+connection:'تولد سیمبیوت؛ همین لباس سیاه بعداً به ادی براک می‌چسبد و ونوم خلق می‌شود. شماره ۸ این سری (اولین حضور لباس سیاه) بسیار ارزشمند است.'},
+{id:'web', en:'WEB OF SPIDER-MAN', fa:'تار اسپایدرمن', years:'۱۹۸۵ تا ۱۹۹۵', y0:1985, issues:'شماره ۱ تا ۱۲۹', writer:'نویسندگان مختلف', type:'main', era:'bronze', chars:['peter'], sales:5, pop:6,
+about:'سومین سری ماهانه اسپایدرمن در دهه ۸۰ و ۹۰.',
+summary:'داستان‌های مستقل و گاه تجربی‌تر از دنیای پیتر پارکر؛ از نبردهای کلاسیک تا ماجراهای روان‌شناختی.',
+connection:'بخشی از پیوستگی اصلی دهه ۸۰؛ بخش‌هایی از کراس‌اورهای بزرگ آن دوره مثل «آخرین شکار کریون» در این سری چاپ شد.'},
+{id:'kraven', en:"KRAVEN'S LAST HUNT", fa:'آخرین شکار کریون', years:'۱۹۸۷', y0:1987, issues:'۶ شماره در سه سری', writer:'جی. ام. دی‌ماتیس', type:'story', era:'dark', chars:['peter'], sales:7, pop:10,
+about:'تاریک‌ترین و تحسین‌شده‌ترین داستان اسپایدرمن؛ شاهکار روان‌شناختی.',
+summary:'کریون شکارچی که همیشه از اسپایدرمن شکست خورده، او را با گلوله بیهوش می‌کند و زنده به گورش می‌کند. بعد لباس او را می‌پوشد و خودش جای اسپایدرمن با جنایتکاران می‌جنگد تا «برتری»اش را ثابت کند؛ پیتر دو هفته بعد از قبر بیرون می‌آید.',
+connection:'نقطه اوج بلوغ داستانی اسپایدرمن؛ نشان داد این شخصیت می‌تواند حامل عمیق‌ترین تم‌های مرگ، هویت و وسواس باشد.'},
+{id:'sm1990', en:'SPIDER-MAN (McFARLANE)', fa:'اسپایدرمن مک‌فارلین', years:'۱۹۹۰ تا ۱۹۹۸', y0:1990, issues:'شماره ۱ تا ۹۸', writer:'تاد مک‌فارلین', type:'main', era:'dark', chars:['peter'], sales:9, pop:8,
+about:'سری‌ای که با طراحی انقلابی تاد مک‌فارلین، اسپایدرمن را به اوج فروش دهه ۹۰ رساند.',
+summary:'مک‌فارلین هم نویسنده و هم طراح بود؛ تارهای درشت و اغراق‌شده و ژست‌های عنکبوتی او سبک بصری اسپایدرمن را برای همیشه عوض کرد. داستان‌ها تیره‌تر و خشن‌تر از قبل بودند.',
+connection:'پل بین اسپایدرمن کلاسیک و دهه ۹۰؛ شماره ۱ آن با چند جلد رنگی مختلف از پرفروش‌ترین تک‌شماره‌های تاریخ کامیک است.'},
+{id:'sm2099', en:'SPIDER-MAN 2099', fa:'اسپایدرمن ۲۰۹۹', years:'۱۹۹۲ تا ۱۹۹۶', y0:1992, issues:'شماره ۱ تا ۴۶', writer:'پیتر دیوید', type:'alt', era:'dark', chars:['miguel'], sales:6, pop:8,
+about:'اسپایدرمن آینده سایبرپانکی؛ میگل اوهارا در نیویورک سال ۲۰۹۹.',
+summary:'میگل اوهارا، ژنتیک‌دان جوانی که برای یک ابرشرکت کار می‌کند، بعد از یک توطئه، DNAاش با عنکبوت ترکیب می‌شود. او در دنیایی تاریک و شرکتی علیه سیستم می‌جنگد؛ بدون عمو بن، اما با همان حس مسئولیت.',
+connection:'محبوب‌ترین دنیای موازی اسپایدرمن؛ میگل بعداً در ایونت «اسپایدر-ورس» به جمع عنکبوت‌ها پیوست و در انیمیشن‌ها هم حضور دارد.'},
+{id:'carnage', en:'MAXIMUM CARNAGE', fa:'کارنیج حداکثری', years:'۱۹۹۳', y0:1993, issues:'۱۴ قسمت در سری‌های مختلف', writer:'دیوید میشلینی', type:'event', era:'dark', chars:['peter'], sales:6, pop:9,
+about:'بزرگ‌ترین نبرد اسپایدرمن و ونوم علیه کارنیج؛ خونین‌ترین کراس‌اور دهه ۹۰.',
+summary:'کارنیج از زندان می‌گریزد و با چند تبهکار تیمی از قاتلان تشکیل می‌دهد. اسپایدرمن مجبور می‌شود با دشمن قسم‌خورده‌اش ونوم متحد شود؛ نبردی که نیویورک را به آشوب می‌کشد.',
+connection:'اوج محبوبیت سیمبیوت‌ها در دهه ۹۰؛ پایه‌گذار جایگاه کارنیج به‌عنوان یکی از خشن‌ترین دشمنان اسپایدرمن.'},
+{id:'clone', en:'THE CLONE SAGA', fa:'حماسه کلون', years:'۱۹۹۴ تا ۱۹۹۶', y0:1994, issues:'ده‌ها شماره در سری‌های مختلف', writer:'نویسندگان مختلف', type:'story', era:'dark', chars:['peter','ben','kaine'], sales:6, pop:8,
+about:'جنجالی‌ترین و طولانی‌ترین داستان دهه ۹۰ اسپایدرمن.',
+summary:'کلون پیتر پارکر، بن رایلی، برمی‌گردد و ادعا می‌شود پیتر واقعی اوست! پیتر زندگی‌اش را رها می‌کند تا بن جایش را بگیرد؛ در پایان معلوم می‌شود پیتر از اول واقعی بوده و بن در نبرد با گرین گابلین جان می‌دهد.',
+connection:'معرفی بن رایلی (اسکارلت اسپایدر) و کین؛ با وجود نقدهای اولیه، امروز طرفداران زیادی دارد و بن رایلی بعداً برگشت.'},
+{id:'sensational', en:'THE SENSATIONAL SPIDER-MAN', fa:'اسپایدرمن هیجان‌انگیز', years:'۱۹۹۶ تا ۱۹۹۸', y0:1996, issues:'شماره ۱ تا ۳۳', writer:'نویسندگان مختلف', type:'main', era:'dark', chars:['peter','ben'], sales:4, pop:6,
+about:'سری ماهانه دوران بن رایلی به‌عنوان اسپایدرمن.',
+summary:'وقتی بن رایلی جای پیتر را گرفت، این سری ماجراهای او را روایت کرد؛ از نبرد با تبهکاران جدید تا تلاش برای اثبات خودش به‌عنوان «اسپایدرمن واقعی».',
+connection:'بخشی از حماسه کلون؛ تنها سری‌ای که قهرمانش برای مدتی پیتر پارکر نبود.'},
+{id:'spidergirl', en:'SPIDER-GIRL', fa:'اسپایدر-گرل', years:'۱۹۹۸ تا ۲۰۰۶', y0:1998, issues:'شماره ۱ تا ۱۰۰', writer:'تام دفالکو', type:'alt', era:'dark', chars:['mayday'], sales:4, pop:7,
+about:'دختر آینده پیتر پارکر و مری جین؛ یکی از دوست‌داشتنی‌ترین دنیاهای موازی.',
+summary:'در آینده‌ای موازی، میدی پارکر دختر نوجوان پیتر است که قدرت‌های عنکبوتی‌اش را از پدر به ارث برده و مخفیانه قهرمان می‌شود؛ در حالی که پیتر بازنشسته و نگران اوست.',
+connection:'دنیای MC2؛ میدی بعداً در ایونت‌های اسپایدر-ورس کنار دیگر عنکبوت‌ها جنگید.'},
+{id:'ultimate', en:'ULTIMATE SPIDER-MAN', fa:'اسپایدرمن آلتیمیت', years:'۲۰۰۰ تا ۲۰۱۱', y0:2000, issues:'شماره ۱ تا ۱۶۰', writer:'برایان مایکل بندیس', type:'alt', era:'modern', chars:['peter','miles'], sales:7, pop:10,
+about:'بازآفرینی مدرن و تحسین‌شده اسپایدرمن برای قرن ۲۱؛ شروع دنیای آلتیمیت.',
+summary:'پیتر پارکر نوجوان امروزی در دنیایی واقع‌گرایانه‌تر؛ همان ریشه‌های آشنا (نیش عنکبوت، مرگ عمو بن) اما با روایت عمیق‌تر و امروزی. در پایان این سری، پیتر آلتیمیت می‌میرد و جایش را به مایلز مورالز می‌دهد.',
+connection:'مهم‌ترین دنیای موازی مارول؛ تولد مایلز مورالز و الگوی اصلی انیمیشن «به درون دنیای عنکبوتی».',
+note:'شماره ۱ آن از شماره‌های ارزشمند مدرن است.'},
+{id:'india', en:'SPIDER-MAN: INDIA', fa:'اسپایدرمن هند', years:'۲۰۰۴', y0:2004, issues:'۴ شماره', writer:'جیوان کانگ', type:'alt', era:'modern', chars:['pavitr'], sales:3, pop:6,
+about:'اسپایدرمن در بمبئی؛ پاویتر پرابهکار.',
+summary:'پاویتر، نوجوان هندی، از یک یوگی باستانی قدرت‌های عنکبوتی می‌گیرد و در بمبئی با نسخه‌های هندی دشمنان (مثل گرین گابلین شیطانی) می‌جنگد.',
+connection:'نمایش تنوع فرهنگی دنیای عنکبوتی؛ پاویتر در «اسپایدر-ورس» و انیمیشن دنیای عنکبوتی حضور دارد.'},
+{id:'mk', en:'MARVEL KNIGHTS SPIDER-MAN', fa:'اسپایدرمن شوالیه‌های مارول', years:'۲۰۰۴ تا ۲۰۰۶', y0:2004, issues:'شماره ۱ تا ۲۲', writer:'مارک میلر', type:'main', era:'modern', chars:['peter'], sales:5, pop:7,
+about:'نگاه بالغ‌تر و سینمایی مارک میلر به اسپایدرمن.',
+summary:'وقتی زن‌عمو می ربوده می‌شود، پیتر وارد توطئه‌ای بزرگ می‌شود که دشمنان قدیمی و رازهای خانوادگی‌اش را درگیر می‌کند؛ داستانی پرتنش با حال‌وهوای تریلر.',
+connection:'بخشی از پیوستگی اصلی؛ روایت جمع‌وجور و مستقلی که برای شروع خواندن عالی است.'},
+{id:'fn', en:'FRIENDLY NEIGHBORHOOD SPIDER-MAN', fa:'اسپایدرمن همسایه دوستانه', years:'۲۰۰۵ تا ۲۰۰۷', y0:2005, issues:'شماره ۱ تا ۲۴', writer:'پیتر دیوید', type:'main', era:'modern', chars:['peter'], sales:4, pop:7,
+about:'اسپایدرمن محله؛ داستان‌های صمیمی و خیابانی.',
+summary:'تمرکز بر زندگی روزمره پیتر در محله‌اش؛ کمک به آدم‌های معمولی، دردسرهای کوچک و بزرگ، و دشمنانی که به خانه‌اش نزدیک‌اند.',
+connection:'بخشی از پیوستگی اصلی؛ لحن گرم و انسانی آن یادآور ریشه‌های شخصیت است.'},
+{id:'civilwar', en:'CIVIL WAR: SPIDER-MAN', fa:'جنگ داخلی: اسپایدرمن', years:'۲۰۰۶ تا ۲۰۰۷', y0:2006, issues:'در ASM و مینی‌سری', writer:'جی. مایکل استرازینسکی', type:'event', era:'modern', chars:['peter'], sales:6, pop:9,
+about:'لحظه‌ای که پیتر پارکر هویتش را به جهان فاش کرد.',
+summary:'در جنگ داخلی قهرمانان بر سر قانون ثبت هویت، اسپایدرمن طرف مرد آهنی را می‌گیرد و در یک کنفرانس مطبوعاتی ماسکش را برمی‌دارد؛ تصمیمی که زندگی‌اش و خانواده‌اش را برای همیشه عوض می‌کند.',
+connection:'یکی از تکان‌دهنده‌ترین لحظات تاریخ اسپایدرمن؛ پیامدهای آن مستقیم به «یک روز بیشتر» (One More Day) ختم شد.'},
+{id:'reign', en:'SPIDER-MAN: REIGN', fa:'اسپایدرمن: سلطنت', years:'۲۰۰۶', y0:2006, issues:'۴ شماره', writer:'کری اندروز', type:'alt', era:'modern', chars:['peter'], sales:4, pop:7,
+about:'اسپایدرمن پیر در آینده‌ای دیستوپیایی؛ ادای احترام تاریک به «شوالیه تاریکی برمی‌گردد».',
+summary:'سی سال بعد، پیتر پارکر پیر و شکسته در نیویورکی تحت کنترل، دوباره لباس را می‌پوشد تا با گذشته‌اش، مری جین و دشمنان قدیمی روبه‌رو شود.',
+connection:'دنیای موازی مستقل؛ نگاه تلخ و شاعرانه به پیری یک قهرمان.'},
+{id:'omd', en:'ONE MORE DAY', fa:'یک روز بیشتر', years:'۲۰۰۷', y0:2007, issues:'ASM شماره ۵۴۴ تا ۵۴۵ و…', writer:'جی. مایکل استرازینسکی و جو کوئسادا', type:'story', era:'modern', chars:['peter'], sales:6, pop:9,
+about:'جنجالی‌ترین تصمیم تاریخ اسپایدرمن؛ معامله با شیطان.',
+summary:'بعد از جنگ داخلی، زن‌عمو می در حال مرگ است. پیتر برای نجات او با مفیستو (شیطان مارول) معامله می‌کند: ازدواجش با مری جین از تاریخ پاک می‌شود و جهان او را فراموش می‌کند.',
+connection:'ریست بزرگ پیوستگی؛ بعد از آن «روز کاملاً جدید» (Brand New Day) شروع شد و پیتر دوباره مجرد و گمنام شد. هنوز بحث‌برانگیزترین داستان میان طرفداران است.'},
+{id:'bnd', en:'BRAND NEW DAY', fa:'روز کاملاً جدید', years:'۲۰۰۸ تا ۲۰۱۰', y0:2008, issues:'ASM شماره ۵۴۶ تا ۶۴۷', writer:'تیم نویسندگان', type:'story', era:'modern', chars:['peter'], sales:6, pop:8,
+about:'شروع تازه اسپایدرمن بعد از معامله با مفیستو؛ بازگشت به ریشه‌ها.',
+summary:'پیتر دوباره جوان، مجرد و ناشناس است؛ با دشمنان تازه (مثل مستر نگاتیو) و چالش‌های تازه. ریتم انتشار هم به سه شماره در ماه رسید.',
+connection:'دوران بازسازی شخصیت؛ خیلی از ایده‌های مدرن اسپایدرمن (مثل کار در Horizon Labs) از اینجا شروع شد.'},
+{id:'noir', en:'SPIDER-MAN NOIR', fa:'اسپایدرمن نوآر', years:'۲۰۰۹', y0:2009, issues:'۴ شماره', writer:'دیوید هاین و فابریس ساپولسکی', type:'alt', era:'modern', chars:['noir'], sales:5, pop:8,
+about:'اسپایدرمن در نیویورک دهه ۱۹۳۰؛ کارآگاه تاریک با عینک خلبانی.',
+summary:'در دوران رکود بزرگ، پیتر پارکر خبرنگار جوانی است که بعد از نیش عنکبوت، در دنیای گانگسترها و فساد با دشمنانی مثل نورمن آزبورن (گابلین) می‌جنگد.',
+connection:'یکی از محبوب‌ترین دنیاهای موازی؛ در «اسپایدر-ورس» و انیمیشن دنیای عنکبوتی حضور پررنگی دارد (با صداپیشگی نیکلاس کیج).'},
+{id:'grimhunt', en:'GRIM HUNT', fa:'شکار تلخ', years:'۲۰۱۰', y0:2010, issues:'ASM شماره ۶۳۴ تا ۶۳۷ و…', writer:'جو کلی', type:'story', era:'modern', chars:['peter'], sales:5, pop:8,
+about:'انتقام خانواده کریون؛ تاریک‌ترین داستان مدرن اسپایدرمن.',
+summary:'خانواده کریون شکارچی برای زنده‌کردن او، اسپایدرمن را شکار می‌کنند و نزدیک است او را قربانی کنند؛ پیتر با کمک دوستانش از مرگ می‌گریزد اما بهای سنگینی می‌دهد.',
+connection:'ادامه مستقیم «آخرین شکار کریون»؛ از خشن‌ترین و بحث‌برانگیزترین خط‌های داستانی دهه ۲۰۱۰.'},
+{id:'bigtime', en:'BIG TIME', fa:'دوران بزرگ', years:'۲۰۱۰ تا ۲۰۱۲', y0:2010, issues:'ASM شماره ۶۴۸ تا ۷۰۰', writer:'دن اسلات', type:'story', era:'modern', chars:['peter'], sales:6, pop:9,
+about:'پیتر پارکر دانشمند؛ اسپایدرمن وارد دنیای تکنولوژی می‌شود.',
+summary:'پیتر در شرکت Horizon Labs استخدام می‌شود و با هوشش گجت‌های تازه می‌سازد؛ در همین دوران با دشمنان تازه (مثل فیل اوریچ/گابلین جدید) و رویداد «جزیره عنکبوتی» روبه‌رو می‌شود.',
+connection:'دوران طلایی دن اسلات؛ مستقیم به «آرزوهای در حال مرگ» و «سوپریور اسپایدرمن» ختم شد.'},
+{id:'spiderisland', en:'SPIDER-ISLAND', fa:'جزیره عنکبوتی', years:'۲۰۱۱', y0:2011, issues:'کراس‌اور چندسری', writer:'دن اسلات', type:'event', era:'modern', chars:['peter','silk','anya'], sales:6, pop:9,
+about:'وقتی همه نیویورکی‌ها قدرت عنکبوتی می‌گیرند!',
+summary:'ویروسی باعث می‌شود هزاران نفر در منهتن قدرت‌های اسپایدرمن را به دست آورند؛ هرج‌ومرجی که پیتر باید با کمک انتقام‌جویان مهارش کند. در همین ماجرا سیلک (سیندی مون) معرفی می‌شود.',
+connection:'ایونت بزرگ دنیای اسپایدرمن؛ تولد سیلک و نقطه عطف دوران دن اسلات.'},
+{id:'uf4', en:'ULTIMATE FALLOUT #4', fa:'اولین حضور مایلز مورالز', years:'۲۰۱۱', y0:2011, issues:'تک‌شماره', writer:'برایان مایکل بندیس و سارا پی‌چلی', type:'limited', era:'modern', chars:['miles','peter'], sales:9, pop:10,
+about:'تولد مایلز مورالز؛ مهم‌ترین شخصیت جدید قرن ۲۱ مارول.',
+summary:'بعد از مرگ پیتر پارکر دنیای آلتیمیت، نوجوانی ۱۳ ساله به نام مایلز مورالز از بروکلین که توسط عنکبوتی اصلاح‌شده گزیده شده، تصمیم می‌گیرد راه او را ادامه دهد.',
+connection:'آغاز عصر مایلز؛ او بعداً به دنیای اصلی آمد، به انتقام‌جویان پیوست و ستاره انیمیشن «به درون دنیای عنکبوتی» شد.',
+note:'از داغ‌ترین کامیک‌های کلکسیونی مدرن؛ نسخه‌های درجه‌بالا قیمت‌های بالایی دارند.'},
+{id:'eote', en:'ENDS OF THE EARTH', fa:'انتهای زمین', years:'۲۰۱۲', y0:2012, issues:'ASM شماره ۶۸۲ تا ۶۸۷', writer:'دن اسلات', type:'story', era:'modern', chars:['peter','otto'], sales:5, pop:8,
+about:'آخرین نبرد بزرگ پیتر پارکر قبل از… مرگش.',
+summary:'دکتر اختاپوس در حال مرگ، با ارتشی از سینیستر سیکس نقشه نابودی جهان را می‌کشد؛ اسپایدرمن با کمک انتقام‌جویان و Horizon Labs جلویش را می‌گیرد، اما اتو برگ برنده‌ای دارد.',
+connection:'مقدمه «آرزوهای در حال مرگ»؛ پایانی حماسی برای دوران پیتر قبل از سوپریور.'},
+{id:'spidermen', en:'SPIDER-MEN', fa:'مردان عنکبوتی', years:'۲۰۱۲', y0:2012, issues:'۵ شماره', writer:'برایان مایکل بندیس', type:'limited', era:'modern', chars:['peter','miles'], sales:6, pop:9,
+about:'اولین دیدار پیتر پارکر و مایلز مورالز.',
+summary:'پیتر دنیای اصلی به‌طور تصادفی وارد دنیای آلتیمیت می‌شود و با مایلز، اسپایدرمن نوجوان آن دنیا، روبه‌رو می‌شود؛ دیداری احساسی بین دو قهرمان از دو جهان.',
+connection:'پل بین دنیای اصلی و آلتیمیت؛ لحظه‌ای تاریخی برای طرفداران هر دو شخصیت.'},
+{id:'superior', en:'THE SUPERIOR SPIDER-MAN', fa:'اسپایدرمن برتر', years:'۲۰۱۳ تا ۲۰۱۴', y0:2013, issues:'شماره ۱ تا ۳۳', writer:'دن اسلات', type:'main', era:'current', chars:['otto','peter'], sales:7, pop:10,
+about:'شوکه‌کننده‌ترین پیچش تاریخ اسپایدرمن: دکتر اختاپوس در بدن پیتر!',
+summary:'اتو اکتاویوس در لحظه مرگ، ذهنش را با پیتر عوض می‌کند و در بدن او «اسپایدرمن برتر» می‌شود؛ قهرمانی بی‌رحم‌تر، باهوش‌تر و تاریک‌تر که با روش‌های خودش با جرم می‌جنگد تا اینکه…',
+connection:'قلب دوران دن اسلات؛ ثابت کرد اسپایدرمن حتی بدون پیتر پارکر هم می‌تواند جذاب باشد. اتو بعداً چند بار برگشت.'},
+{id:'eosv2', en:'EDGE OF SPIDER-VERSE #2', fa:'اولین حضور اسپایدر-گوئن', years:'۲۰۱۴', y0:2014, issues:'تک‌شماره', writer:'جیسون لاتور', type:'limited', era:'current', chars:['gwen'], sales:8, pop:10,
+about:'تولد گوئن استیسیِ عنکبوتی؛ پدیده‌ای که دنیای کامیک را تکان داد.',
+summary:'در دنیای موازیِ گوئن، این اوست که توسط عنکبوت گزیده می‌شود و پیترِ آن دنیا می‌میرد. گوئن درامر یک بند پانک‌راک است که شب‌ها با هویت مخفی با جرم می‌جنگد.',
+connection:'آغاز اسپایدر-گوئن؛ او بلافاصله سری خودش را گرفت و از ستارگان «اسپایدر-ورس» شد.',
+note:'از داغ‌ترین کامیک‌های دهه اخیر برای کلکسیونرها.'},
+{id:'spiderverse', en:'SPIDER-VERSE', fa:'اسپایدر-ورس', years:'۲۰۱۴ تا ۲۰۱۵', y0:2014, issues:'کراس‌اور بزرگ', writer:'دن اسلات', type:'event', era:'current', chars:['peter','miles','gwen','miguel','noir','ham','peni','silk','mayday'], sales:7, pop:10,
+about:'بزرگ‌ترین گردهمایی تاریخ عنکبوت‌ها؛ الهام‌بخش انیمیشن اسکاری.',
+summary:'خانواده‌ای از شکارچیان چندجهانی به نام «وارثان» شروع به کشتن همه اسپایدرمن‌های دنیاهای موازی می‌کنند؛ عنکبوت‌ها از ده‌ها دنیا متحد می‌شوند تا بجنگند.',
+connection:'تعریف‌کننده مفهوم «دنیای عنکبوتی»؛ مستقیم الهام‌بخش انیمیشن «به درون دنیای عنکبوتی» (۲۰۱۸).'},
+{id:'spidergwen', en:'SPIDER-GWEN', fa:'اسپایدر-گوئن', years:'۲۰۱۵ تا ۲۰۱۸', y0:2015, issues:'دو ولوم', writer:'جیسون لاتور', type:'main', era:'current', chars:['gwen','miles'], sales:6, pop:9,
+about:'سری مستقل گوئن؛ پانک‌راک، درام نوجوانی و ابرقهرمانی.',
+summary:'گوئن استیسیِ دنیای موازی بین زندگی‌اش به‌عنوان درامر بند «مری جینز»، رابطه پیچیده با پدر پلیسش و نبرد با جرم، تعادل برقرار می‌کند.',
+connection:'یکی از موفق‌ترین سری‌های مارول در دهه اخیر؛ گوئن را از یک «چه می‌شد اگر» به ستاره‌ای مستقل تبدیل کرد.'},
+{id:'ryv', en:'RENEW YOUR VOWS', fa:'تجدید عهد', years:'۲۰۱۵', y0:2015, issues:'۵ شماره (بعد سری مستقل)', writer:'دن اسلات', type:'limited', era:'current', chars:['peter','mayday'], sales:5, pop:8,
+about:'چه می‌شد اگر پیتر و مری جین ازدواجشان را حفظ می‌کردند و بچه‌دار می‌شدند؟',
+summary:'در دنیای موازی، پیتر و مری جین ازدواج کرده‌اند و دختری به نام آنی دارند که قدرت‌های عنکبوتی دارد؛ خانواده‌ای ابرقهرمان در برابر رگنانت (نسخه تاریک).',
+connection:'پاسخ به حسرت طرفداران بعد از «یک روز بیشتر»؛ آن‌قدر محبوب شد که سری مستقل خودش را گرفت.'},
+{id:'sm2099v2', en:'SPIDER-MAN 2099 (VOL. 2)', fa:'اسپایدرمن ۲۰۹۹ (دوره دوم)', years:'۲۰۱۴ تا ۲۰۱۷', y0:2014, issues:'دو ولوم', writer:'پیتر دیوید', type:'main', era:'current', chars:['miguel','peter'], sales:4, pop:7,
+about:'بازگشت میگل اوهارا؛ این بار در زمان حال.',
+summary:'میگل در زمان سفر می‌کند و در نیویورک امروزی گیر می‌افتد؛ باید هم با تبهکاران بجنگد و هم راهی برای برگشت پیدا کند.',
+connection:'اتصال دنیای ۲۰۹۹ به پیوستگی اصلی؛ با همان نویسنده محبوب دهه ۹۰.'},
+{id:'clonecon', en:'THE CLONE CONSPIRACY', fa:'توطئه کلون', years:'۲۰۱۶', y0:2016, issues:'کراس‌اور', writer:'دن اسلات', type:'event', era:'current', chars:['peter','ben','kaine'], sales:5, pop:8,
+about:'بازگشت بن رایلی… به‌عنوان تبهکار!',
+summary:'بن رایلی با فناوری کلون‌سازیِ جکال، مردگان (از جمله گوئن و عمو بن) را برمی‌گرداند اما با قیمتی هولناک؛ پیتر باید با گذشته‌اش روبه‌رو شود.',
+connection:'فصل تازه حماسه کلون؛ بن رایلی را به‌عنوان «جکال» جدید بازتعریف کرد.'},
+{id:'pp', en:'PETER PARKER: THE SPECTACULAR SPIDER-MAN', fa:'پیتر پارکر: اسپایدرمن تماشایی', years:'۲۰۱۷ تا ۲۰۱۸', y0:2017, issues:'شماره ۱ تا ۳۱۰', writer:'چیپ زدارسکی', type:'main', era:'current', chars:['peter'], sales:5, pop:8,
+about:'بازگشت به پیترِ خیابانی و انسانی با قلم چیپ زدارسکی.',
+summary:'داستان‌های صمیمی و بامزه از زندگی پیتر؛ از خواهر گمشده‌اش تا ماجراهای روزمره قهرمانی در نیویورک.',
+connection:'از تحسین‌شده‌ترین سری‌های اخیر؛ تعادل عالی بین طنز و احساس.'},
+{id:'geddon', en:'SPIDER-GEDDON', fa:'اسپایدر-گدون', years:'۲۰۱۸', y0:2018, issues:'کراس‌اور', writer:'کریستوس گیج', type:'event', era:'current', chars:['peter','miles','gwen','miguel','otto'], sales:5, pop:8,
+about:'دنباله اسپایدر-ورس؛ بازگشت وارثان.',
+summary:'وارثان برمی‌گردند و این بار عنکبوت‌ها با نقشه‌ای تازه و متحدانی غیرمنتظره (از جمله سوپریور اسپایدرمن!) به جنگشان می‌روند.',
+connection:'تکمیل‌کننده حماسه چندجهانی عنکبوت‌ها؛ اتو اکتاویوس در نقش قهرمان می‌درخشد.'},
+{id:'mm18', en:'MILES MORALES: SPIDER-MAN', fa:'مایلز مورالز: اسپایدرمن', years:'۲۰۱۸ تا ۲۰۲۲', y0:2018, issues:'شماره ۱ تا ۴۲', writer:'سلیمه احمد', type:'main', era:'current', chars:['miles'], sales:6, pop:9,
+about:'مایلز در دنیای اصلی؛ بلوغ یک قهرمان نوجوان.',
+summary:'مایلز حالا در دنیای اصلی زندگی می‌کند؛ بین مدرسه، خانواده و مسئولیت‌های ابرقهرمانی تعادل برقرار می‌کند و با دشمنان تازه‌ای مثل آسالترون روبه‌رو می‌شود.',
+connection:'تثبیت مایلز به‌عنوان اسپایدرمن دوم دنیای اصلی؛ هم‌زمان با اوج محبوبیتش بعد از انیمیشن دنیای عنکبوتی.'},
+{id:'hunted', en:'HUNTED', fa:'شکارشده', years:'۲۰۱۹', y0:2019, issues:'ASM شماره ۱۶ تا ۲۳', writer:'نیک اسپنسر', type:'story', era:'current', chars:['peter'], sales:5, pop:8,
+about:'کریون برمی‌گردد؛ این بار با ارتشی از تبهکاران حیوانی.',
+summary:'کریون ده‌ها تبهکار با تم حیوانی را در سنترال پارک زندانی می‌کند و اسپایدرمن را مجبور می‌کند برای بقا بجنگد؛ نبردی برای اثبات «شکارچی واقعی» کیست.',
+connection:'ادای احترام مدرن به «آخرین شکار کریون»؛ از نفس‌گیرترین خط‌های داستانی اخیر.'},
+{id:'fn19', en:'FRIENDLY NEIGHBORHOOD SPIDER-MAN (VOL. 2)', fa:'اسپایدرمن همسایه دوستانه (دوره دوم)', years:'۲۰۱۹ تا ۲۰۲۰', y0:2019, issues:'شماره ۱ تا ۱۴', writer:'تام تیلور', type:'main', era:'current', chars:['peter'], sales:4, pop:7,
+about:'گرم‌ترین و انسانی‌ترین اسپایدرمن سال‌های اخیر.',
+summary:'پیتر به آدم‌های معمولی محله‌اش کمک می‌کند؛ از نجات یک کودک تا روبه‌رو شدن با مشکلات واقعی زندگی. اشک‌آور و دلگرم‌کننده.',
+connection:'یادآور اینکه اسپایدرمن اول «همسایه دوستانه» است، بعد ابرقهرمان.'},
+{id:'ghost', en:'GHOST-SPIDER', fa:'گوست-اسپایدر', years:'۲۰۱۹ تا ۲۰۲۰', y0:2019, issues:'شماره ۱ تا ۱۰', writer:'سنا مگوایر', type:'main', era:'current', chars:['gwen'], sales:4, pop:7,
+about:'گوئن در دنیای اصلی؛ دانشجوی انتقام‌جویان!',
+summary:'گوئن به دنیای اصلی می‌آید و بین دو دنیا در رفت‌وآمد است؛ با هویت تازه «گوست-اسپایدر» و چالش‌های تازه.',
+connection:'گسترش دنیای گوئن فراتر از دنیای موازی خودش.'},
+{id:'lastremains', en:'LAST REMAINS', fa:'آخرین بقایا', years:'۲۰۲۰ تا ۲۰۲۱', y0:2020, issues:'ASM شماره ۵۰ تا ۵۵', writer:'نیک اسپنسر', type:'story', era:'current', chars:['peter'], sales:5, pop:8,
+about:'راز کیندرد فاش می‌شود؛ تاریک‌ترین فصل نیک اسپنسر.',
+summary:'دشمن مرموزی به نام کیندرد که از گذشته پیتر کینه دارد، او را به لبه پرتگاه روانی می‌برد؛ رازی که به «یک روز بیشتر» گره خورده فاش می‌شود.',
+connection:'اوج خط داستانی نیک اسپنسر؛ پیوند مستقیم با جنجالی‌ترین تصمیم تاریخ شخصیت.'},
+{id:'beyond', en:'BEYOND', fa:'فراتر', years:'۲۰۲۱ تا ۲۰۲۲', y0:2021, issues:'ASM شماره ۷۵ تا ۹۳', writer:'تیم نویسندگان', type:'story', era:'current', chars:['ben','peter'], sales:5, pop:8,
+about:'بن رایلی دوباره اسپایدرمن می‌شود؛ این بار با حمایت یک ابرشرکت.',
+summary:'شرکت Beyond بن رایلی را به‌عنوان اسپایدرمن رسمی استخدام می‌کند؛ اما پشت این حمایت، نقشه‌های شومی است و پیتر هم از دور نظاره‌گر است.',
+connection:'فصل تازه بن رایلی؛ نگاهی انتقادی به تجاری‌سازی ابرقهرمانی.'},
+{id:'darkweb', en:'DARK WEB', fa:'وب تاریک', years:'۲۰۲۲ تا ۲۰۲۳', y0:2022, issues:'کراس‌اور', writer:'زب ولز', type:'event', era:'current', chars:['peter'], sales:4, pop:7,
+about:'مادلین پرایر و بن رایلی علیه اسپایدرمن و مردان ایکس.',
+summary:'بن رایلیِ آسیب‌دیده با ملکه گابلین‌ها متحد می‌شود و با جادوی تاریک نیویورک را به آشوب می‌کشد؛ اسپایدرمن و مردان ایکس ناچار به اتحادند.',
+connection:'تلاقی دنیای اسپایدرمن و مردان ایکس؛ ادامه سرنوشت بن رایلی بعد از Beyond.'},
+{id:'gangwar', en:'GANG WAR', fa:'جنگ گنگ‌ها', years:'۲۰۲۳ تا ۲۰۲۴', y0:2023, issues:'کراس‌اور', writer:'زب ولز', type:'event', era:'current', chars:['peter','miles','silk','anya'], sales:4, pop:7,
+about:'جنگ قدرت تبهکاران نیویورک؛ همه عنکبوت‌ها وارد می‌شوند.',
+summary:'با خلأ قدرت در دنیای تبهکاران، گروه‌های مختلف برای کنترل نیویورک می‌جنگند و عنکبوت‌ها (پیتر، مایلز، سیلک و…) هرکدام یک جبهه را می‌گیرند.',
+connection:'ایونت خیابانی بزرگ؛ گردهمایی نسل‌های مختلف عنکبوت‌های دنیای اصلی.'},
+{id:'usm24', en:'ULTIMATE SPIDER-MAN (2024)', fa:'اسپایدرمن آلتیمیت (۲۰۲۴)', years:'۲۰۲۴ تا امروز', y0:2024, issues:'در حال انتشار', writer:'جاناتان هیکمن', type:'alt', era:'current', chars:['peter'], sales:6, pop:9,
+about:'بازگشت دنیای آلتیمیت با پیتر پارکرِ میانسال و خانواده‌دار!',
+summary:'در دنیای آلتیمیت تازه، پیتر پارکر مردی متأهل با دو بچه است که تازه قدرت‌های عنکبوتی به دست می‌آورد؛ نگاهی کاملاً تازه و بالغ به ریشه‌های شخصیت.',
+connection:'شروع خط جدید آلتیمیت مارول؛ از تحسین‌شده‌ترین شروع‌های سال‌های اخیر و پرفروش در میان سری‌های جدید.'}
+];
+
+var grid = document.getElementById('grid');
+var qEl = document.getElementById('q');
+var typeChips = document.getElementById('typeChips');
+var charSel = document.getElementById('charSel');
+var eraSel = document.getElementById('eraSel');
+var sortSel = document.getElementById('sortSel');
+var countEl = document.getElementById('count');
+var favToggle = document.getElementById('favToggle');
+var overlay = document.getElementById('overlay');
+var sheet = document.getElementById('sheet');
+
+var FKEY = 'spidey-favs-v1';
+var favs = {};
+try { favs = JSON.parse(localStorage.getItem(FKEY) || '{}'); } catch(e){ favs = {}; }
+function saveFavs(){ try { localStorage.setItem(FKEY, JSON.stringify(favs)); } catch(e){} }
+
+var state = { q:'', type:'', char:'', era:'', sort:'yearAsc', favOnly:false };
+
+Object.keys(CHARS).forEach(function(k){
+  var o = document.createElement('option'); o.value = k; o.textContent = CHARS[k]; charSel.appendChild(o);
+});
+Object.keys(ERAS).forEach(function(k){
+  var o = document.createElement('option'); o.value = k; o.textContent = ERAS[k]; eraSel.appendChild(o);
+});
+
+var typeKeys = [''].concat(Object.keys(TYPES));
+typeKeys.forEach(function(k){
+  var b = document.createElement('button');
+  b.className = 'chip' + (k === '' ? ' active' : '');
+  b.textContent = k === '' ? 'همه' : TYPES[k];
+  b.addEventListener('click', function(){
+    state.type = k;
+    typeChips.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('active'); });
+    b.classList.add('active');
+    render();
+  });
+  typeChips.appendChild(b);
+});
+
+function faNum(s){ return String(s).replace(/[0-9]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'[+d]; }); }
+
+function filtered(){
+  var q = state.q.trim();
+  var list = DATA.filter(function(d){
+    if(state.favOnly && !favs[d.id]) return false;
+    if(state.type && d.type !== state.type) return false;
+    if(state.char && d.chars.indexOf(state.char) === -1) return false;
+    if(state.era && d.era !== state.era) return false;
+    if(q){
+      var hay = (d.en + ' ' + d.fa + ' ' + d.writer + ' ' + d.chars.map(function(c){return CHARS[c];}).join(' ')).toLowerCase();
+      if(hay.indexOf(q.toLowerCase()) === -1) return false;
+    }
+    return true;
+  });
+  var s = state.sort;
+  list.sort(function(a,b){
+    if(s === 'yearAsc') return a.y0 - b.y0;
+    if(s === 'yearDesc') return b.y0 - a.y0;
+    if(s === 'sales') return b.sales - a.sales;
+    if(s === 'pop') return b.pop - a.pop;
+    return 0;
+  });
+  return list;
+}
+
+function typeBadge(t){
+  var cls = t === 'event' ? 'red' : (t === 'alt' ? 'blue' : '');
+  return '<span class="badge ' + cls + '">' + TYPES[t] + '</span>';
+}
+
+function render(){
+  var list = filtered();
+  countEl.textContent = faNum(list.length) + ' سری';
+  grid.innerHTML = '';
+  if(!list.length){
+    grid.innerHTML = '<div class="empty">چیزی پیدا نشد.<br>عبارت دیگری را امتحان کن.</div>';
+    return;
+  }
+  list.forEach(function(d, i){
+    var el = document.createElement('article');
+    el.className = 'card';
+    el.style.animationDelay = Math.min(i * 35, 400) + 'ms';
+    var bm = favs[d.id] ? ' on' : '';
+    el.innerHTML =
+      '<button class="bm' + bm + '" aria-label="ذخیره" data-bm="' + d.id + '">' +
+      '<svg viewBox="0 0 24 24" fill="' + (favs[d.id] ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>' +
+      '<h3 class="en">' + d.en + '</h3>' +
+      '<p class="fa">' + d.fa + '</p>' +
+      '<div class="meta">' + typeBadge(d.type) +
+      '<span class="badge">' + ERAS[d.era] + '</span>' +
+      '<span class="badge">' + d.years + '</span></div>' +
+      '<p class="about">' + d.about + '</p>';
+    el.addEventListener('click', function(e){
+      var b = e.target.closest('[data-bm]');
+      if(b){
+        e.stopPropagation();
+        toggleFav(d.id);
+        return;
+      }
+      openSheet(d);
+    });
+    grid.appendChild(el);
+  });
+}
+
+function toggleFav(id){
+  if(favs[id]) delete favs[id]; else favs[id] = 1;
+  saveFavs();
+  render();
+}
+
+function openSheet(d){
+  var chars = d.chars.map(function(c){ return '<span class="badge">' + CHARS[c] + '</span>'; }).join('');
+  sheet.innerHTML =
+    '<button class="close-x" id="closeX" aria-label="بستن">×</button>' +
+    '<div class="grab"></div>' +
+    '<h3 class="en">' + d.en + '</h3>' +
+    '<h2>' + d.fa + '</h2>' +
+    '<div class="meta">' + typeBadge(d.type) +
+    '<span class="badge">' + ERAS[d.era] + '</span>' +
+    (d.sales >= 8 ? '<span class="badge gold">★ از پرفروش‌ترین‌ها</span>' : '') +
+    (d.pop >= 9 ? '<span class="badge red">♥ از محبوب‌ترین‌ها</span>' : '') + '</div>' +
+    '<div class="kv"><span class="k">درباره</span><span class="v">' + d.about + '</span></div>' +
+    '<div class="kv"><span class="k">خلاصه داستان</span><span class="v">' + d.summary + '</span></div>' +
+    '<div class="kv"><span class="k">ارتباط با دنیای عنکبوتی</span><span class="v">' + d.connection + '</span></div>' +
+    '<div class="kv"><span class="k">سال انتشار</span><span class="v">' + d.years + '</span></div>' +
+    '<div class="kv"><span class="k">شماره‌ها</span><span class="v">' + d.issues + '</span></div>' +
+    '<div class="kv"><span class="k">نویسنده</span><span class="v">' + d.writer + '</span></div>' +
+    '<div class="kv"><span class="k">شخصیت‌ها</span><span class="v"><span class="chars">' + chars + '</span></span></div>' +
+    (d.note ? '<div class="note-box"><b>نکته کلکسیونی: </b>' + d.note + '</div>' : '');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('closeX').addEventListener('click', closeSheet);
+}
+
+function closeSheet(){
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+overlay.addEventListener('click', function(e){ if(e.target === overlay) closeSheet(); });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeSheet(); });
+
+var qTimer = null;
+qEl.addEventListener('input', function(){
+  clearTimeout(qTimer);
+  qTimer = setTimeout(function(){ state.q = qEl.value; render(); }, 220);
+});
+charSel.addEventListener('change', function(){ state.char = charSel.value; render(); });
+eraSel.addEventListener('change', function(){ state.era = eraSel.value; render(); });
+sortSel.addEventListener('change', function(){ state.sort = sortSel.value; render(); });
+favToggle.addEventListener('click', function(){
+  state.favOnly = !state.favOnly;
+  favToggle.classList.toggle('active', state.favOnly);
+  render();
+});
+
+render();
+})();
+</script>
+</body>
+</html>
