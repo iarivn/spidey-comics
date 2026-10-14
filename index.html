@@ -179,6 +179,37 @@
   }
   .note-box b{color:var(--gold);}
 
+  /* ===== covers ===== */
+  .cover{margin:-20px -20px 14px; height:178px; overflow:hidden; border-radius:18px 18px 0 0; background:#0a0a0d;}
+  .cover img{width:100%; height:100%; object-fit:cover; object-position:top center; display:block;}
+  .scover{width:148px; aspect-ratio:2/3; border-radius:12px; object-fit:cover; float:left; margin:2px 0 12px 14px; border:1.5px solid var(--line); background:#0a0a0d;}
+  .gear{
+    flex:none; width:52px; display:flex; align-items:center; justify-content:center;
+    background:var(--card); border:1.5px solid var(--line); border-radius:16px;
+    color:var(--muted); cursor:pointer; transition:all .2s ease;
+  }
+  .gear svg{width:20px;height:20px;}
+  .gear:active{transform:scale(.92) rotate(30deg);}
+  .set-row{margin:12px 0;}
+  .set-row label{display:block; font-size:13px; font-weight:700; color:var(--muted); margin-bottom:6px;}
+  .set-row input{
+    width:100%; background:#0e0e13; border:1.5px solid var(--line); border-radius:12px;
+    color:var(--cream); font-family:monospace; font-size:13px; padding:12px 14px; outline:none; direction:ltr; text-align:left;
+  }
+  .set-row input:focus{border-color:var(--red);}
+  .btn{
+    font-family:inherit; font-size:14px; font-weight:800; border:none; border-radius:14px;
+    padding:13px 22px; cursor:pointer; transition:all .2s ease;
+  }
+  .btn:active{transform:scale(.96);}
+  .btn.primary{background:var(--red); color:#fff; box-shadow:0 6px 20px rgba(230,36,41,.35);}
+  .btn.ghost{background:#23232c; color:var(--cream); border:1.5px solid var(--line); margin-right:8px;}
+  .set-status{font-size:13px; color:var(--muted); line-height:2; margin-top:12px; min-height:26px;}
+  .set-status.err{color:#ff8a8e;}
+  .set-hint{font-size:13px; color:var(--muted); line-height:2.1; background:#101016; border:1px dashed var(--line); border-radius:14px; padding:12px 15px; margin-bottom:6px;}
+  .set-hint b{color:var(--cream);}
+  .set-hint code{font-family:monospace; direction:ltr; display:inline-block; background:#1c1c24; padding:1px 8px; border-radius:6px; color:var(--gold); font-size:12px;}
+
   footer{margin-top:44px; text-align:center; color:#6d6879; font-size:12.5px; line-height:2.1; padding:0 10px;}
   footer b{color:var(--muted);}
   @media (min-width:700px){
@@ -207,6 +238,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="#A09AAE" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <input id="q" type="search" placeholder="جست‌وجو بین سری‌ها، شخصیت‌ها، نویسنده‌ها…" autocomplete="off">
       </label>
+      <button class="gear" id="gearBtn" aria-label="تنظیمات کاور">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
       <button class="fav-toggle" id="favToggle" aria-label="علاقه‌مندی‌ها">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
         ذخیره‌شده‌ها
@@ -231,7 +265,8 @@
   <footer>
     <b>درباره رتبه‌بندی‌ها:</b> «پرفروش‌ترین‌ها» بر اساس رکوردهای ثبت‌شده حراج و فروش تک‌شماره‌هاست و تقریبی است.<br>
     «محبوب‌ترین‌ها» بر اساس تأثیر فرهنگی و بازخورد خواننده‌هاست. این فهرست مهم‌ترین سری‌هاست، نه تک‌تک شماره‌ها.<br>
-    تمام اطلاعات جنبه معرفی دارد — هیچ فایل یا دانلودی ارائه نمی‌شود.
+    تمام اطلاعات جنبه معرفی دارد — هیچ فایل یا دانلودی ارائه نمی‌شود.<br>
+    <span style="opacity:.7">Data provided by Marvel. © 2026 MARVEL</span>
   </footer>
 </div>
 
@@ -526,6 +561,7 @@ function render(){
     el.innerHTML =
       '<button class="bm' + bm + '" aria-label="ذخیره" data-bm="' + d.id + '">' +
       '<svg viewBox="0 0 24 24" fill="' + (favs[d.id] ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>' +
+      (covers[d.id] ? '<div class="cover"><img loading="lazy" src="' + covers[d.id] + '" alt=""></div>' : '') +
       '<h3 class="en">' + d.en + '</h3>' +
       '<p class="fa">' + d.fa + '</p>' +
       '<div class="meta">' + typeBadge(d.type) +
@@ -556,6 +592,7 @@ function openSheet(d){
   sheet.innerHTML =
     '<button class="close-x" id="closeX" aria-label="بستن">×</button>' +
     '<div class="grab"></div>' +
+    (covers[d.id] ? '<img class="scover" src="' + covers[d.id] + '" alt="">' : '') +
     '<h3 class="en">' + d.en + '</h3>' +
     '<h2>' + d.fa + '</h2>' +
     '<div class="meta">' + typeBadge(d.type) +
@@ -595,6 +632,157 @@ favToggle.addEventListener('click', function(){
   favToggle.classList.toggle('active', state.favOnly);
   render();
 });
+
+/* ================= Marvel covers ================= */
+var MQ = {
+af15:{t:'comics',q:'Amazing Fantasy',n:15}, asm1:{t:'series',q:'Amazing Spider-Man'},
+gwen122:{t:'comics',q:'Amazing Spider-Man',n:121}, spectacular:{t:'series',q:'Spectacular Spider-Man'},
+secretwars:{t:'comics',q:'Secret Wars',n:8}, web:{t:'series',q:'Web of Spider-Man'},
+kraven:{t:'comics',q:'Web of Spider-Man',n:31}, sm1990:{t:'series',q:'Spider-Man'},
+sm2099:{t:'series',q:'Spider-Man 2099'}, carnage:{t:'comics',q:'Spider-Man Unlimited',n:1},
+clone:{t:'series',q:'Scarlet Spider'}, sensational:{t:'series',q:'Sensational Spider-Man'},
+spidergirl:{t:'series',q:'Spider-Girl'}, ultimate:{t:'series',q:'Ultimate Spider-Man'},
+india:{t:'series',q:'Spider-Man: India'}, mk:{t:'series',q:'Marvel Knights Spider-Man'},
+fn:{t:'series',q:'Friendly Neighborhood Spider-Man'}, civilwar:{t:'comics',q:'Civil War',n:2},
+reign:{t:'series',q:'Spider-Man: Reign'}, omd:{t:'comics',q:'Amazing Spider-Man',n:545},
+bnd:{t:'comics',q:'Amazing Spider-Man',n:546}, noir:{t:'series',q:'Spider-Man Noir'},
+grimhunt:{t:'comics',q:'Amazing Spider-Man',n:634}, bigtime:{t:'comics',q:'Amazing Spider-Man',n:648},
+spiderisland:{t:'comics',q:'Amazing Spider-Man',n:666}, uf4:{t:'comics',q:'Ultimate Fallout',n:4},
+eote:{t:'comics',q:'Amazing Spider-Man',n:682}, spidermen:{t:'series',q:'Spider-Men'},
+superior:{t:'series',q:'Superior Spider-Man'}, eosv2:{t:'comics',q:'Edge of Spider-Verse',n:2},
+spiderverse:{t:'comics',q:'Amazing Spider-Man',n:9}, spidergwen:{t:'series',q:'Spider-Gwen'},
+ryv:{t:'series',q:'Amazing Spider-Man: Renew Your Vows'}, sm2099v2:{t:'series',q:'Spider-Man 2099'},
+clonecon:{t:'series',q:'Dead No More: The Clone Conspiracy'}, pp:{t:'series',q:'Peter Parker: The Spectacular Spider-Man'},
+geddon:{t:'series',q:'Spider-Geddon'}, mm18:{t:'series',q:'Miles Morales: Spider-Man'},
+hunted:{t:'comics',q:'Amazing Spider-Man',n:16}, fn19:{t:'series',q:'Friendly Neighborhood Spider-Man'},
+ghost:{t:'series',q:'Ghost-Spider'}, lastremains:{t:'comics',q:'Amazing Spider-Man',n:50},
+beyond:{t:'comics',q:'Amazing Spider-Man',n:75}, darkweb:{t:'series',q:'Dark Web'},
+gangwar:{t:'series',q:'Gang War'}, usm24:{t:'series',q:'Ultimate Spider-Man'}
+};
+
+function md5(s){
+  function rr(v,a){return (v<<a)|(v>>>(32-a));}
+  function cm(q,a,b,x,s,t){a=add(a,add(add(q,x),t));return add(rr(a,s),b);}
+  function ff(a,b,c,d,x,s,t){return cm((b&c)|((~b)&d),a,b,x,s,t);}
+  function gg(a,b,c,d,x,s,t){return cm((b&d)|(c&(~d)),a,b,x,s,t);}
+  function hh(a,b,c,d,x,s,t){return cm(b^c^d,a,b,x,s,t);}
+  function ii(a,b,c,d,x,s,t){return cm(c^(b|(~d)),a,b,x,s,t);}
+  function add(x,y){var l=(x&0xffff)+(y&0xffff),m=(x>>16)+(y>>16)+(l>>16);return (m<<16)|(l&0xffff);}
+  function rol(v,n){return (v<<n)|(v>>>(32-n));}
+  s=unescape(encodeURIComponent(s));
+  var bl=s.length*8, x=[], i;
+  for(i=0;i<s.length;i++) x[i>>2]|=s.charCodeAt(i)<<((i%4)<<3);
+  x[bl>>5]|=0x80<<(bl%32); x[(((bl+64)>>>9)<<4)+14]=bl;
+  var a=1732584193,b=-271733879,c=-1732584194,d=271733878;
+  for(i=0;i<x.length;i+=16){
+    var oa=a,ob=b,oc=c,od=d;
+    a=ff(a,b,c,d,x[i],7,-680876936);d=ff(d,a,b,c,x[i+1],12,-389564586);c=ff(c,d,a,b,x[i+2],17,606105819);b=ff(b,c,d,a,x[i+3],22,-1044525330);
+    a=ff(a,b,c,d,x[i+4],7,-176418897);d=ff(d,a,b,c,x[i+5],12,1200080426);c=ff(c,d,a,b,x[i+6],17,-1473231341);b=ff(b,c,d,a,x[i+7],22,-45705983);
+    a=ff(a,b,c,d,x[i+8],7,1770035416);d=ff(d,a,b,c,x[i+9],12,-1958414417);c=ff(c,d,a,b,x[i+10],17,-42063);b=ff(b,c,d,a,x[i+11],22,-1990404162);
+    a=ff(a,b,c,d,x[i+12],7,1804603682);d=ff(d,a,b,c,x[i+13],12,-40341101);c=ff(c,d,a,b,x[i+14],17,-1502002290);b=ff(b,c,d,a,x[i+15],22,1236535329);
+    a=gg(a,b,c,d,x[i+1],5,-165796510);d=gg(d,a,b,c,x[i+6],9,-1069501632);c=gg(c,d,a,b,x[i+11],14,643717713);b=gg(b,c,d,a,x[i],20,-373897302);
+    a=gg(a,b,c,d,x[i+5],5,-701558691);d=gg(d,a,b,c,x[i+10],9,38016083);c=gg(c,d,a,b,x[i+15],14,-660478335);b=gg(b,c,d,a,x[i+4],20,-405537848);
+    a=gg(a,b,c,d,x[i+9],5,568446438);d=gg(d,a,b,c,x[i+14],9,-1019803690);c=gg(c,d,a,b,x[i+3],14,-187363961);b=gg(b,c,d,a,x[i+8],20,1163531501);
+    a=gg(a,b,c,d,x[i+13],5,-1444681467);d=gg(d,a,b,c,x[i+2],9,-51403784);c=gg(c,d,a,b,x[i+7],14,1735328473);b=gg(b,c,d,a,x[i+12],20,-1926607734);
+    a=hh(a,b,c,d,x[i+5],4,-378558);d=hh(d,a,b,c,x[i+8],11,-2022574463);c=hh(c,d,a,b,x[i+11],16,1839030562);b=hh(b,c,d,a,x[i+14],23,-35309556);
+    a=hh(a,b,c,d,x[i+1],4,-1530992060);d=hh(d,a,b,c,x[i+4],11,1272893353);c=hh(c,d,a,b,x[i+7],16,-155497632);b=hh(b,c,d,a,x[i+10],23,-1094730640);
+    a=hh(a,b,c,d,x[i+13],4,681279174);d=hh(d,a,b,c,x[i],11,-358537222);c=hh(c,d,a,b,x[i+3],16,-722521979);b=hh(b,c,d,a,x[i+6],23,76029189);
+    a=hh(a,b,c,d,x[i+9],4,-640364487);d=hh(d,a,b,c,x[i+12],11,-421815835);c=hh(c,d,a,b,x[i+15],16,530742520);b=hh(b,c,d,a,x[i+2],23,-995338651);
+    a=ii(a,b,c,d,x[i],6,-198630844);d=ii(d,a,b,c,x[i+7],10,1126891415);c=ii(c,d,a,b,x[i+14],15,-1416354905);b=ii(b,c,d,a,x[i+5],21,-57434055);
+    a=ii(a,b,c,d,x[i+12],6,1700485571);d=ii(d,a,b,c,x[i+3],10,-1894986606);c=ii(c,d,a,b,x[i+10],15,-1051523);b=ii(b,c,d,a,x[i+1],21,-2054922799);
+    a=ii(a,b,c,d,x[i+8],6,1873313359);d=ii(d,a,b,c,x[i+15],10,-30611744);c=ii(c,d,a,b,x[i+6],15,-1560198380);b=ii(b,c,d,a,x[i+13],21,1309151649);
+    a=ii(a,b,c,d,x[i+4],6,-145523070);d=ii(d,a,b,c,x[i+11],10,-1120210379);c=ii(c,d,a,b,x[i+2],15,718787259);b=ii(b,c,d,a,x[i+9],21,-343485551);
+    a=add(a,oa);b=add(b,ob);c=add(c,oc);d=add(d,od);
+  }
+  function hex(n){var s='';for(var j=0;j<4;j++){var by=(n>>>(j*8))&0xff;s+=('0'+by.toString(16)).slice(-2);}return s;}
+  return hex(a)+hex(b)+hex(c)+hex(d);
+}
+
+var KKEY = 'spidey-marvel-keys', CKEY = 'spidey-covers-v1';
+var covers = {};
+try { covers = JSON.parse(localStorage.getItem(CKEY) || '{}'); } catch(e){ covers = {}; }
+function saveCovers(){ try { localStorage.setItem(CKEY, JSON.stringify(covers)); } catch(e){} }
+function getKeys(){
+  try { return JSON.parse(localStorage.getItem(KKEY) || '{}'); } catch(e){ return {}; }
+}
+function setStatus(msg, err){
+  var el = document.getElementById('mkStatus');
+  if(el){ el.textContent = msg; el.className = 'set-status' + (err ? ' err' : ''); }
+}
+function marvelURL(path, params){
+  var k = getKeys(), ts = String(Date.now());
+  var hash = md5(ts + k.priv + k.pub);
+  var q = Object.keys(params).map(function(key){ return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]); }).join('&');
+  return 'https://gateway.marvel.com/v1/public/' + path + '?' + q + '&ts=' + ts + '&apikey=' + encodeURIComponent(k.pub) + '&hash=' + hash;
+}
+function pickThumb(result, entry, isSeries){
+  if(!result || !result.thumbnail) return null;
+  if(result.thumbnail.path.indexOf('image_not_available') !== -1) return null;
+  return result.thumbnail.path.replace('http://','https://') + '/portrait_incredible.' + result.thumbnail.extension;
+}
+function fetchCovers(){
+  var k = getKeys();
+  if(!k.pub || !k.priv){ setStatus('اول کلید عمومی و خصوصی رو وارد و ذخیره کن.', true); return; }
+  var btn = document.getElementById('mkFetch');
+  if(btn) btn.disabled = true;
+  var i = 0;
+  (function next(){
+    if(i >= DATA.length){
+      saveCovers(); render();
+      setStatus('تموم شد! کاورها ذخیره شدن.');
+      if(btn) btn.disabled = false;
+      return;
+    }
+    var d = DATA[i], mq = MQ[d.id];
+    setStatus('در حال دریافت… ' + faNum(i + 1) + ' از ' + faNum(DATA.length));
+    var params = mq.t === 'series'
+      ? { titleStartsWith: mq.q, limit: 10 }
+      : { titleStartsWith: mq.q, issueNumber: mq.n, limit: 10 };
+    fetch(marvelURL(mq.t, params)).then(function(r){
+      if(!r.ok) throw new Error('خطای ' + r.status + ' — اگه تازه ثبت‌نام کردی، مطمئن شو iarivn.github.io رو توی «authorized referrers» حسابت اضافه کردی');
+      return r.json();
+    }).then(function(j){
+      var res = (j.data && j.data.results) || [], pick = res[0], k2;
+      for(k2 = 0; k2 < res.length; k2++){
+        var yr = mq.t === 'series' ? res[k2].startYear : parseInt((((res[k2].dates || [])[0] || {}).date || '0').slice(0,4), 10);
+        if(yr === d.y0){ pick = res[k2]; break; }
+      }
+      var th = pickThumb(pick, d, mq.t === 'series');
+      if(th) covers[d.id] = th;
+      i++; setTimeout(next, 250);
+    }).catch(function(err){
+      setStatus('خطا: ' + err.message, true);
+      if(btn) btn.disabled = false;
+    });
+  })();
+}
+function openSettings(){
+  var k = getKeys();
+  sheet.innerHTML =
+    '<button class="close-x" id="closeX" aria-label="بستن">×</button>' +
+    '<div class="grab"></div>' +
+    '<h2>کاورهای رسمی مارول</h2>' +
+    '<div class="set-hint">کلیدها فقط توی <b>مرورگر خودت</b> ذخیره می‌شن و هیچ‌جا ارسال نمی‌شن. کلید خصوصی رو با کسی به اشتراک نذار.<br>اگه هنوز کلید نگرفتی: <b>developer.marvel.com</b> ← ثبت‌نام ← Get a Key — و <code>iarivn.github.io</code> رو توی authorized referrers حسابت اضافه کن.</div>' +
+    '<div class="set-row"><label>کلید عمومی (Public Key)</label><input id="mkPub" value="' + (k.pub || '') + '" placeholder="public key" autocomplete="off"></div>' +
+    '<div class="set-row"><label>کلید خصوصی (Private Key)</label><input id="mkPriv" value="' + (k.priv || '') + '" placeholder="private key" autocomplete="off" type="password"></div>' +
+    '<div style="margin-top:14px;"><button class="btn primary" id="mkSave">ذخیره کلیدها</button>' +
+    '<button class="btn ghost" id="mkFetch">دریافت کاورها</button></div>' +
+    '<div class="set-status" id="mkStatus">' + (Object.keys(covers).length ? faNum(Object.keys(covers).length) + ' کاور ذخیره شده.' : '') + '</div>';
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('closeX').addEventListener('click', closeSheet);
+  document.getElementById('mkSave').addEventListener('click', function(){
+    try {
+      localStorage.setItem(KKEY, JSON.stringify({
+        pub: document.getElementById('mkPub').value.trim(),
+        priv: document.getElementById('mkPriv').value.trim()
+      }));
+      setStatus('کلیدها ذخیره شدن. حالا «دریافت کاورها» رو بزن.');
+    } catch(e){ setStatus('خطا در ذخیره.', true); }
+  });
+  document.getElementById('mkFetch').addEventListener('click', fetchCovers);
+}
+document.getElementById('gearBtn').addEventListener('click', openSettings);
 
 render();
 })();
