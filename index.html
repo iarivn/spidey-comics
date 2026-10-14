@@ -183,39 +183,8 @@
   .cover{margin:-20px -20px 14px; height:178px; overflow:hidden; border-radius:18px 18px 0 0; background:#0a0a0d;}
   .cover img{width:100%; height:100%; object-fit:cover; object-position:top center; display:block;}
   .scover{width:148px; aspect-ratio:2/3; border-radius:12px; object-fit:cover; float:left; margin:2px 0 12px 14px; border:1.5px solid var(--line); background:#0a0a0d;}
-  .gear{
-    flex:none; width:52px; display:flex; align-items:center; justify-content:center;
-    background:var(--card); border:1.5px solid var(--line); border-radius:16px;
-    color:var(--muted); cursor:pointer; transition:all .2s ease;
-  }
   .gear svg{width:20px;height:20px;}
   .gear:active{transform:scale(.92) rotate(30deg);}
-  .set-row{margin:12px 0;}
-  .set-row label{display:block; font-size:13px; font-weight:700; color:var(--muted); margin-bottom:6px;}
-  .set-row input{
-    width:100%; background:#0e0e13; border:1.5px solid var(--line); border-radius:12px;
-    color:var(--cream); font-family:monospace; font-size:13px; padding:12px 14px; outline:none; direction:ltr; text-align:left;
-  }
-  .set-row input:focus{border-color:var(--red);}
-  .btn{
-    font-family:inherit; font-size:14px; font-weight:800; border:none; border-radius:14px;
-    padding:13px 22px; cursor:pointer; transition:all .2s ease;
-  }
-  .btn:active{transform:scale(.96);}
-  .btn.primary{background:var(--red); color:#fff; box-shadow:0 6px 20px rgba(230,36,41,.35);}
-  .btn.ghost{background:#23232c; color:var(--cream); border:1.5px solid var(--line); margin-right:8px;}
-  .set-status{font-size:13px; color:var(--muted); line-height:2; margin-top:12px; min-height:26px;}
-  .set-status.err{color:#ff8a8e;}
-  .set-hint{font-size:13px; color:var(--muted); line-height:2.1; background:#101016; border:1px dashed var(--line); border-radius:14px; padding:12px 15px; margin-bottom:6px;}
-  .set-hint b{color:var(--cream);}
-  .set-hint code{font-family:monospace; direction:ltr; display:inline-block; background:#1c1c24; padding:1px 8px; border-radius:6px; color:var(--gold); font-size:12px;}
-
-  footer{margin-top:44px; text-align:center; color:#6d6879; font-size:12.5px; line-height:2.1; padding:0 10px;}
-  footer b{color:var(--muted);}
-  @media (min-width:700px){
-    .overlay{align-items:center; padding:20px;}
-    .sheet{border-radius:26px; border-bottom:1.5px solid var(--line);}
-  }
 </style>
 </head>
 <body>
@@ -238,9 +207,6 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="#A09AAE" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <input id="q" type="search" placeholder="جست‌وجو بین سری‌ها، شخصیت‌ها، نویسنده‌ها…" autocomplete="off">
       </label>
-      <button class="gear" id="gearBtn" aria-label="تنظیمات کاور">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-      </button>
       <button class="fav-toggle" id="favToggle" aria-label="علاقه‌مندی‌ها">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
         ذخیره‌شده‌ها
@@ -561,7 +527,7 @@ function render(){
     el.innerHTML =
       '<button class="bm' + bm + '" aria-label="ذخیره" data-bm="' + d.id + '">' +
       '<svg viewBox="0 0 24 24" fill="' + (favs[d.id] ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>' +
-      (covers[d.id] ? '<div class="cover"><img loading="lazy" src="' + covers[d.id] + '" alt=""></div>' : '') +
+      (covers[d.id] ? '<div class="cover"><img loading="lazy" src="' + covers[d.id] + '" alt="" onerror="this.parentNode.style.display=\'none\'"></div>' : '') +
       '<h3 class="en">' + d.en + '</h3>' +
       '<p class="fa">' + d.fa + '</p>' +
       '<div class="meta">' + typeBadge(d.type) +
@@ -592,7 +558,7 @@ function openSheet(d){
   sheet.innerHTML =
     '<button class="close-x" id="closeX" aria-label="بستن">×</button>' +
     '<div class="grab"></div>' +
-    (covers[d.id] ? '<img class="scover" src="' + covers[d.id] + '" alt="">' : '') +
+    (covers[d.id] ? '<img class="scover" src="' + covers[d.id] + '" alt="" onerror="this.style.display=\'none\'">' : '') +
     '<h3 class="en">' + d.en + '</h3>' +
     '<h2>' + d.fa + '</h2>' +
     '<div class="meta">' + typeBadge(d.type) +
@@ -633,113 +599,58 @@ favToggle.addEventListener('click', function(){
   render();
 });
 
-/* ================= Comic Vine covers ================= */
-var MQ = {
-af15:{t:'comics',q:'Amazing Fantasy',n:15}, asm1:{t:'series',q:'Amazing Spider-Man'},
-gwen122:{t:'comics',q:'Amazing Spider-Man',n:121}, spectacular:{t:'series',q:'Spectacular Spider-Man'},
-secretwars:{t:'comics',q:'Secret Wars',n:8}, web:{t:'series',q:'Web of Spider-Man'},
-kraven:{t:'comics',q:'Web of Spider-Man',n:31}, sm1990:{t:'series',q:'Spider-Man'},
-sm2099:{t:'series',q:'Spider-Man 2099'}, carnage:{t:'comics',q:'Spider-Man Unlimited',n:1},
-clone:{t:'series',q:'Scarlet Spider'}, sensational:{t:'series',q:'Sensational Spider-Man'},
-spidergirl:{t:'series',q:'Spider-Girl'}, ultimate:{t:'series',q:'Ultimate Spider-Man'},
-india:{t:'series',q:'Spider-Man: India'}, mk:{t:'series',q:'Marvel Knights Spider-Man'},
-fn:{t:'series',q:'Friendly Neighborhood Spider-Man'}, civilwar:{t:'comics',q:'Civil War',n:2},
-reign:{t:'series',q:'Spider-Man: Reign'}, omd:{t:'comics',q:'Amazing Spider-Man',n:545},
-bnd:{t:'comics',q:'Amazing Spider-Man',n:546}, noir:{t:'series',q:'Spider-Man Noir'},
-grimhunt:{t:'comics',q:'Amazing Spider-Man',n:634}, bigtime:{t:'comics',q:'Amazing Spider-Man',n:648},
-spiderisland:{t:'comics',q:'Amazing Spider-Man',n:666}, uf4:{t:'comics',q:'Ultimate Fallout',n:4},
-eote:{t:'comics',q:'Amazing Spider-Man',n:682}, spidermen:{t:'series',q:'Spider-Men'},
-superior:{t:'series',q:'Superior Spider-Man'}, eosv2:{t:'comics',q:'Edge of Spider-Verse',n:2},
-spiderverse:{t:'comics',q:'Amazing Spider-Man',n:9}, spidergwen:{t:'series',q:'Spider-Gwen'},
-ryv:{t:'series',q:'Amazing Spider-Man: Renew Your Vows'}, sm2099v2:{t:'series',q:'Spider-Man 2099'},
-clonecon:{t:'series',q:'Dead No More: The Clone Conspiracy'}, pp:{t:'series',q:'Peter Parker: The Spectacular Spider-Man'},
-geddon:{t:'series',q:'Spider-Geddon'}, mm18:{t:'series',q:'Miles Morales: Spider-Man'},
-hunted:{t:'comics',q:'Amazing Spider-Man',n:16}, fn19:{t:'series',q:'Friendly Neighborhood Spider-Man'},
-ghost:{t:'series',q:'Ghost-Spider'}, lastremains:{t:'comics',q:'Amazing Spider-Man',n:50},
-beyond:{t:'comics',q:'Amazing Spider-Man',n:75}, darkweb:{t:'series',q:'Dark Web'},
-gangwar:{t:'series',q:'Gang War'}, usm24:{t:'series',q:'Ultimate Spider-Man'}
+/* ============ baked-in cover art (Comic Vine, scale_medium) ============ */
+var COVERS = {
+'af15':'https://comicvine.gamespot.com/a/uploads/scale_medium/11161/111615891/9344858-1.jpg',
+'asm1':'https://comicvine.gamespot.com/a/uploads/scale_medium/11/117763/2676366-amazingspiderman001.jpg',
+'spectacular':'https://comicvine.gamespot.com/a/uploads/scale_medium/11/117763/2432028-spectacularspider_man001.jpg',
+'secretwars':'https://comicvine.gamespot.com/a/uploads/scale_medium/11161/111615891/9443262-cover.jpg',
+'web':'https://comicvine.gamespot.com/a/uploads/scale_medium/8/84205/4087937-wosm1nm92m084.jpg',
+'kraven':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/3669085-01.jpg',
+'sm1990':'https://comicvine.gamespot.com/a/uploads/scale_medium/5/56044/2423629-spider_man__1990__01a.jpeg',
+'sm2099':'https://comicvine.gamespot.com/a/uploads/scale_medium/5/56044/1811820-spider_man_2099__1992_.jpeg',
+'carnage':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/4/47873-5048-57288-1-spider-man-unlimited.jpg',
+'clone':'https://comicvine.gamespot.com/a/uploads/scale_medium/1/15776/607829-scarlets1a.jpg',
+'sensational':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/4/72764-5788-77942-1-sensational-spider-m.jpg',
+'spidergirl':'https://comicvine.gamespot.com/a/uploads/scale_medium/1/15776/595318-sg1a.jpg',
+'ultimate':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/4/44573-7257-51619-1-ultimate-spider-man.jpg',
+'india':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/9245/506129-1.jpg',
+'mk':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/2792518-01_cropped.jpg',
+'fn':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/754/91320-17998-105375-2-friendly-neighborhoo.jpg',
+'civilwar':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/443/83333-18023-105570-1-civil-war.jpg',
+'reign':'https://comicvine.gamespot.com/a/uploads/scale_medium/2/22664/1245404-spm.jpg',
+'omd':'https://comicvine.gamespot.com/a/uploads/scale_medium/11/110017/2770777-amazing_spider_man_545_001.jpg',
+'bnd':'https://comicvine.gamespot.com/a/uploads/scale_medium/3/38919/1254932-amazing_spider_man_mgc.jpg',
+'noir':'https://comicvine.gamespot.com/a/uploads/scale_medium/2/22664/1245291-spm.jpg',
+'bigtime':'https://comicvine.gamespot.com/a/uploads/scale_medium/5/56044/1818250-amazing_spider_man__1998__2nd_series__648a.jpeg',
+'spiderisland':'https://comicvine.gamespot.com/a/uploads/scale_medium/8/80654/1933401-tasm_666001.jpg',
+'uf4':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/1966577-04a.jpg',
+'spidermen':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/3547808-01a.jpg',
+'superior':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/3548171-01.jpg',
+'eosv2':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/4103481-02.jpg',
+'spiderverse':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/4572737-01.jpg',
+'spidergwen':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/4851255-01.jpg',
+'ryv':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/4598340-01.jpg',
+'sm2099v2':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/3945888-01.jpg',
+'clonecon':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/5479402-01.jpg',
+'pp':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/5914604-01.jpg',
+'geddon':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/6623643-00.jpg',
+'mm18':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/6721981-01.jpg',
+'hunted':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/6819184-16.jpg',
+'fn19':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/6753283-01.jpg',
+'ghost':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/7047340-01.jpg',
+'lastremains':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/7630667-50.lr.jpg',
+'beyond':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/8188577-75.jpg',
+'darkweb':'https://comicvine.gamespot.com/a/uploads/scale_medium/12/124259/8714340-darkweb2022001_cover.jpg',
+'gangwar':'https://comicvine.gamespot.com/a/uploads/scale_medium/11159/111592040/9158432-img_2992.jpeg',
+'usm24':'https://comicvine.gamespot.com/a/uploads/scale_medium/11/110017/9226620-wwww.jpg',
+'gwen122':'https://comicvine.gamespot.com/a/uploads/scale_medium/11161/111615891/9345995-1.jpg',
+'grimhunt':'https://comicvine.gamespot.com/a/uploads/scale_medium/2/22664/1480940-asm_grh.jpg',
+'eote':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/2815145-01.jpg',
 };
 
 
-var KKEY = 'spidey-cv-key', CKEY = 'spidey-covers-v2';
-var covers = {};
-try { covers = JSON.parse(localStorage.getItem(CKEY) || '{}'); } catch(e){ covers = {}; }
-function saveCovers(){ try { localStorage.setItem(CKEY, JSON.stringify(covers)); } catch(e){} }
-function getKeys(){
-  try { return JSON.parse(localStorage.getItem(KKEY) || '{}'); } catch(e){ return {}; }
-}
-function setStatus(msg, err){
-  var el = document.getElementById('mkStatus');
-  if(el){ el.textContent = msg; el.className = 'set-status' + (err ? ' err' : ''); }
-}
-function cvURL(path, params){
-  var k = getKeys();
-  params.api_key = k.key;
-  params.format = 'json';
-  var q = Object.keys(params).map(function(key){ return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]); }).join('&');
-  return 'https://comicvine.gamespot.com/api/' + path + '/?' + q;
-}
-function fetchCovers(){
-  var k = getKeys();
-  if(!k.key){ setStatus('اول کلید API رو وارد و ذخیره کن.', true); return; }
-  var btn = document.getElementById('mkFetch');
-  if(btn) btn.disabled = true;
-  var i = 0;
-  (function next(){
-    if(i >= DATA.length){
-      saveCovers(); render();
-      setStatus('تموم شد! کاورها ذخیره شدن.');
-      if(btn) btn.disabled = false;
-      return;
-    }
-    var d = DATA[i], mq = MQ[d.id];
-    setStatus('در حال دریافت… ' + faNum(i + 1) + ' از ' + faNum(DATA.length));
-    var isVol = mq.t === 'series';
-    var query = isVol ? mq.q : (mq.q + ' ' + mq.n);
-    fetch(cvURL('search', { query: query, resources: isVol ? 'volume' : 'issue', limit: 10 })).then(function(r){
-      if(!r.ok) throw new Error('خطای ' + r.status + ' — کلید API رو چک کن');
-      return r.json();
-    }).then(function(j){
-      var res = j.results || [], pick = res[0], k2;
-      for(k2 = 0; k2 < res.length; k2++){
-        var yr = isVol ? res[k2].start_year : parseInt((res[k2].cover_date || '0').slice(0,4), 10);
-        if(yr === d.y0){ pick = res[k2]; break; }
-      }
-      if(pick && pick.image && (pick.image.medium_url || pick.image.small_url)){
-        covers[d.id] = pick.image.medium_url || pick.image.small_url;
-      }
-      i++; setTimeout(next, 400);
-    }).catch(function(err){
-      setStatus('خطا: ' + err.message, true);
-      if(btn) btn.disabled = false;
-    });
-  })();
-}
-function openSettings(){
-  var k = getKeys();
-  sheet.innerHTML =
-    '<button class="close-x" id="closeX" aria-label="بستن">×</button>' +
-    '<div class="grab"></div>' +
-    '<h2>کاورهای کامیک</h2>' +
-    '<div class="set-hint">کلید فقط توی <b>مرورگر خودت</b> ذخیره می‌شه و هیچ‌جا ارسال نمی‌شه.<br>اگه هنوز کلید نگرفتی: برو به <b>comicvine.gamespot.com/api</b> ← ثبت‌نام/ورود ← همون صفحه کلید API رو بهت نشون میده.</div>' +
-    '<div class="set-row"><label>کلید API کامیک‌واین</label><input id="mkKey" value="' + (k.key || '') + '" placeholder="api key" autocomplete="off"></div>' +
-    '<div style="margin-top:14px;"><button class="btn primary" id="mkSave">ذخیره کلید</button>' +
-    '<button class="btn ghost" id="mkFetch">دریافت کاورها</button></div>' +
-    '<div class="set-status" id="mkStatus">' + (Object.keys(covers).length ? faNum(Object.keys(covers).length) + ' کاور ذخیره شده.' : '') + '</div>';
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('closeX').addEventListener('click', closeSheet);
-  document.getElementById('mkSave').addEventListener('click', function(){
-    try {
-      localStorage.setItem(KKEY, JSON.stringify({
-        key: document.getElementById('mkKey').value.trim()
-      }));
-      setStatus('کلید ذخیره شد. حالا «دریافت کاورها» رو بزن.');
-    } catch(e){ setStatus('خطا در ذخیره.', true); }
-  });
-  document.getElementById('mkFetch').addEventListener('click', fetchCovers);
-}
-document.getElementById('gearBtn').addEventListener('click', openSettings);
+var covers = COVERS;
 
 render();
 })();
