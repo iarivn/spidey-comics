@@ -340,8 +340,8 @@
 (function(){
 "use strict";
 
-var CHARS = {peter:'پیتر پارکر', miles:'مایلز مورالز', gwen:'اسپایدر-گوئن', miguel:'میگل اوهارا (۲۰۹۹)', noir:'اسپایدرمن نوآر', jessica:'جسیکا درو', ben:'بن رایلی', kaine:'کین', otto:'دکتر اختاپوس', mayday:'میدی پارکر', pavitr:'پاویتر پرابهکار', silk:'سیلک', anya:'آنیا کورازون', ham:'اسپایدر-هم', peni:'پنی پارکر', hobie:'هابی براون (اسپایدر-پانک)', bailey:'بیلی بریگز (اسپایدر-بوی)', takuya:'تاکویا یاماشیرو'};
-var TYPES = {main:'سری اصلی', limited:'مینی‌سری', event:'ایونت', story:'خط داستانی', alt:'دنیای آلترناتیو', key:'شماره کلیدی', movie:'فیلم', tv:'سریال'};
+var CHARS = {peter:'پیتر پارکر', miles:'مایلز مورالز', gwen:'اسپایدر-گوئن', miguel:'میگل اوهارا (۲۰۹۹)', noir:'اسپایدرمن نوآر', jessica:'جسیکا درو', ben:'بن رایلی', kaine:'کین', otto:'دکتر اختاپوس', mayday:'میدی پارکر', pavitr:'پاویتر پرابهکار', silk:'سیلک', anya:'آنیا کورازون', ham:'اسپایدر-هم', peni:'پنی پارکر', hobie:'هابی براون (اسپایدر-پانک)', bailey:'بیلی بریگز (اسپایدر-بوی)', takuya:'تاکویا یاماشیرو', julia:'جولیا کارپنتر', mattie:'متی فرانکلین', billy:'بیلی برادوک (اسپایدر-یوکی)', lady:'می ریلی (لیدی اسپایدر)', cassandra:'کاساندرا وب (مادام وب)', ezekiel:'ازکیل سیمز'};
+var TYPES = {main:'سری اصلی', limited:'مینی‌سری', event:'ایونت', story:'خط داستانی', alt:'دنیای آلترناتیو', key:'شماره کلیدی', movie:'فیلم', tv:'سریال', character:'کاراکتر'};
 var ERAS = {silver:'عصر نقره‌ای', bronze:'عصر برنز', dark:'عصر تاریک', modern:'هزاره جدید', current:'معاصر'};
 
 var DATA = [
@@ -792,6 +792,127 @@ about:'چه می‌شد اگر...؟ اسپایدرمنِ همسایه در دن�
 summary:'بازگویی ریشه‌ها در خط زمانی موازی که نورمن آزبورن (نه تونی استارک) راهنمای پیتر است؛ با انیمیشن کمیک‌بوکی.',
 connection:'تازه‌ترین سریال؛ فصل‌های بعدی در راه است.',
 adapt:'ASM (سال‌های اول)، Ultimate Spider-Man'},
+/* ================= کاراکترها ================= */
+{id:'char-peter', en:'SPIDER-MAN', fa:'پیتر پارکر — اسپایدرمن', years:'۱۹۶۲', y0:1962, issues:'Amazing Fantasy #15', writer:'استن لی، استیو دیتکو', type:'character', era:'silver', chars:['peter'], sales:10, pop:10,
+about:'مرد عنکبوتی اصلی؛ نوجوان نابغه‌ای که معنای مسئولیت را از عمو بن آموخت.',
+summary:'پیتر پارکر، دانش‌آموز دبیرستانی خجالتی، بر اثر گزش یک عنکبوت رادیواکتیوی قدرت‌های عنکبوتی به دست آورد. پس از مرگ عمو بن — که می‌توانست جلوی قاتلش را بگیرد و نگرفت — سوگند خورد از قدرتش برای کمک به دیگران استفاده کند. او مشهورترین قهرمان مارول و نقطه شروع کل دنیای عنکبوتی است.',
+connection:'همه نسخه‌ها و کاراکترهای عنکبوتی از او منشعب شده‌اند؛ ستون اصلی Spider-Verse.',
+note:'نسخه‌ای از Amazing Fantasy #15 در سال ۲۰۲۱ به قیمت ۳.۶ میلیون دلار فروخته شد؛ رکورد گران‌ترین کامیک تاریخ.'},
+{id:'char-miles', en:'MILES MORALES', fa:'مایلز مورالز — اسپایدرمن', years:'۲۰۱۱', y0:2011, issues:'Ultimate Fallout #4', writer:'برایان مایکل بندیس، سارا پیچه‌لی', type:'character', era:'modern', chars:['miles'], sales:9, pop:10,
+about:'نوجوان بروکلینی که بعد از مرگ پیتر پارکرِ دنیای آلتیمیت، ردای اسپایدرمن را برداشت.',
+summary:'مایلز مورالز، نوجوان ۱۳ ساله آفریقایی-لاتین‌تبار، توسط یک عنکبوت اصلاح‌ژنتیکی‌شده گزیده شد. ابتدا از قهرمان شدن می‌ترسید، اما مرگ پیتر پارکر او را به پذیرش مسئولیت واداشت. قدرت‌های اضافه‌ای مثل نامرئی شدن و «نیش زهر» (شوک الکتریکی) دارد.',
+connection:'ستاره انیمیشن‌های Spider-Verse؛ محبوب‌ترین اسپایدرمن نسل جدید.',
+note:'کمتر از یک دهه بعد از اولین حضورش در کامیک، ستاره سینما شد.'},
+{id:'char-gwen', en:'SPIDER-GWEN · GHOST-SPIDER', fa:'گوئن استیسی — اسپایدر-گوئن', years:'۲۰۱۴', y0:2014, issues:'Edge of Spider-Verse #2', writer:'جیسون لاتور، رابی رودریگز', type:'character', era:'current', chars:['gwen'], sales:8, pop:10,
+about:'در دنیای او، به‌جای پیتر، گوئن استیسی توسط عنکبوت گزیده شد.',
+summary:'در زمین شماره ۶۵، گوئن استیسی درامر یک گروه موسیقی است که قدرت‌های عنکبوتی گرفت و به اسپایدر-وومن تبدیل شد؛ در همان دنیا پیتر پارکر می‌میرد و گوئن با عذاب وجدان دست‌وپنجه نرم می‌کند. بعدها نام «گوست-اسپایدر» را برگزید.',
+connection:'یکی از سه قهرمان اصلی انیمیشن‌های Spider-Verse در کنار مایلز و پیتر.',
+note:'طراحی لباس سفید-صورتی-مشکی او از محبوب‌ترین کاستوم‌های دهه اخیر کامیک است.'},
+{id:'char-ben', en:'SCARLET SPIDER', fa:'بن رایلی — اسکارلت اسپایدر', years:'۱۹۷۵', y0:1975, issues:'Amazing Spider-Man #149', writer:'گری کانوی، راس اندرو', type:'character', era:'bronze', chars:['ben'], sales:7, pop:9,
+about:'کلون پیتر پارکر که هویت مستقل خودش را ساخت و قهرمان شد.',
+summary:'بن رایلی کلونی از پیتر پارکر است که توسط شغال (Jackal) ساخته شد. سال‌ها باور داشت خودش پیتر اصلی است؛ وقتی فهمید کلون است، نام «بن» (از عمو بن) و «رایلی» (نام خانوادگی عمه می) را برگزید و با لباس قرمز دست‌باف و هودی آبی به‌عنوان اسکارلت اسپایدر جنگید.',
+connection:'قهرمان اصلی حماسه کلون (Clone Saga) در دهه ۹۰؛ بعدها خودش مدتی اسپایدرمن شد.',
+note:'هودی آبی و عنکبوت قرمز روی سینه‌اش از ماندگارترین طراحی‌های دهه ۹۰ است.'},
+{id:'char-kaine', en:'KAINE PARKER · SCARLET SPIDER', fa:'کین پارکر — اسکارلت اسپایدر', years:'۱۹۹۴', y0:1994, issues:'Web of Spider-Man #119', writer:'تری کاوانا، استیون باتلر', type:'character', era:'dark', chars:['kaine'], sales:6, pop:8,
+about:'کلون ناقص و خشن پیتر که از شرور به قهرمان تبدیل شد.',
+summary:'کین اولین کلون پیتر بود که به‌خاطر نقص ژنتیکی دچار زوال سلولی و چهره‌ای زخمی شد. سال‌ها به‌عنوان آدمکش و دشمن پیتر و بن عمل کرد، اما کم‌کم راه رستگاری را پیدا کرد و ردای اسکارلت اسپایدر را از بن گرفت.',
+connection:'نمونه کلاسیک «دشمنی که قهرمان شد» در دنیای عنکبوتی.',
+note:'«نشان کین» — سوزاندن علامت عنکبوت روی صورت دشمنان با دست — امضای ترسناک او بود.'},
+{id:'char-miguel', en:'SPIDER-MAN 2099', fa:'میگل اوهارا — اسپایدرمن ۲۰۹۹', years:'۱۹۹۲', y0:1992, issues:'Spider-Man 2099 #1', writer:'پیتر دیوید، ریک لئوناردی', type:'character', era:'dark', chars:['miguel'], sales:8, pop:9,
+about:'اسپایدرمن سال ۲۰۹۹ در شهر آینده‌نگر نوئوا یورک.',
+summary:'میگل اوهارا، دانشمند ژنتیک در شرکت آلکمکس، بر اثر یک آزمایش خرابکارانه DNAاش با عنکبوت ترکیب شد. برخلاف پیتر، نیش‌های زهری، چنگال‌های تیز و دید پیشرفته دارد و تارهایش ارگانیک‌اند. در دنیای سایبرپانکی ۲۰۹۹ علیه ابرشرکت‌ها می‌جنگد.',
+connection:'رهبر ارتش عنکبوتی در رویداد Spider-Verse؛ ستاره انیمیشن Across the Spider-Verse.',
+note:'یکی از موفق‌ترین سری‌های خط 2099 مارول در دهه ۹۰ بود.'},
+{id:'char-ham', en:'SPIDER-HAM', fa:'پیتر پورکر — اسپایدر-هم', years:'۱۹۸۳', y0:1983, issues:'Marvel Tails #1', writer:'تام دفالکو، مارک آرمسترانگ', type:'character', era:'bronze', chars:['ham'], sales:6, pop:9,
+about:'نسخه خوکِ کارتونی اسپایدرمن که همه‌چیز را به شوخی می‌گیرد!',
+summary:'پیتر پورکر عنکبوتی بود که توسط یک خوک دانشمندِ رادیواکتیوی گزیده شد و به خوکی انسان‌نما با قدرت‌های عنکبوتی تبدیل شد! در دنیای حیوانات کارتونی (Earth-8311) زندگی می‌کند و با چکش‌های کارتونی و شوخی‌های بامزه با دشمنانی مثل دکتر اختاپوسِ خوک می‌جنگد.',
+connection:'ستاره کمدی انیمیشن Into the Spider-Verse؛ محبوب بچه‌ها و بزرگ‌ترها.',
+note:'اولین حضورش در کمیکی بود که اسمش بازی با کلمات «Marvel Tales» است: Marvel Tails!'},
+{id:'char-noir', en:'SPIDER-MAN NOIR', fa:'اسپایدرمن نوآر', years:'۲۰۰۹', y0:2009, issues:'Spider-Man: Noir #1', writer:'دیوید هاین، فابریس ساپولسکی، کارمینه دی جیاندومنیکو', type:'character', era:'modern', chars:['noir'], sales:7, pop:9,
+about:'اسپایدرمن دهه ۱۹۳۰؛ کارآگاه خشن در دوران رکود بزرگ آمریکا.',
+summary:'در زمین ۹۰۲۱۴، پیتر پارکرِ سال ۱۹۳۳ خبرنگار جوانی است که قدرتش را از یک عنکبوت جادویی باستانی گرفت. با کت چرم، عینک خلبانی و اسلحه، در نیویورکِ پر از گانگستر با نورمن آزبورنِ رئیس مافیا می‌جنگد. دنیایش سیاه‌وسفید و پر از سایه است.',
+connection:'یکی از اعضای اصلی تیم در Into the Spider-Verse (با صدای نیکلاس کیج).',
+note:'برخلاف بقیه اسپایدرمن‌ها، از اسلحه استفاده می‌کند و روش‌هایش خشن‌تر است.'},
+{id:'char-silk', en:'SILK', fa:'سیندی مون — سیلک', years:'۲۰۱۴', y0:2014, issues:'Amazing Spider-Man (2014) #4', writer:'دن اسلات، اومبرتو راموس', type:'character', era:'current', chars:['silk'], sales:7, pop:9,
+about:'دختری که همان عنکبوتِ پیتر او را هم گزید؛ حتی قوی‌تر از او!',
+summary:'سیندی مون هم‌کلاسی پیتر بود که همان عنکبوت رادیواکتیوی او را هم گزید، اما برای در امان ماندن از دست مورلان سال‌ها در یک پناهگاه حبس شد. تارهایش از نوک انگشتانش خارج می‌شود (ارگانیک) و حس عنکبوتی‌اش از پیتر هم قوی‌تر است.',
+connection:'نقش کلیدی در رویداد Spider-Verse؛ سری مستقل خودش را هم دارد.',
+note:'نام «سیلک» از تارهای ابریشمی و مهارتش در بافتن تار گرفته شده.'},
+{id:'char-jessica', en:'SPIDER-WOMAN', fa:'جسیکا درو — اسپایدر-وومن', years:'۱۹۷۷', y0:1977, issues:'Marvel Spotlight #32', writer:'آرچی گودوین، ماری سورین', type:'character', era:'bronze', chars:['jessica'], sales:7, pop:8,
+about:'اولین اسپایدر-وومن؛ جاسوس سابق هایدرا با قدرت‌های منحصربه‌فرد.',
+summary:'جسیکا درو در کودکی با سرم عنکبوتی نجات پیدا کرد و قدرت‌هایی مثل گلاید (پرواز کوتاه)، انفجار زهر و فرمون گرفت. مدتی برای سازمان شرور هایدرا کار کرد، اما بعد به قهرمان مستقلی تبدیل شد و حتی مدتی عضو انتقام‌جویان بود.',
+connection:'از قدیمی‌ترین قهرمانان زن مارول؛ مادر یک پسر و ستاره سری‌های مستقل متعدد.',
+note:'برخلاف اسمش، هیچ نسبت خانوادگی با پیتر پارکر ندارد!'},
+{id:'char-mayday', en:'SPIDER-GIRL', fa:'میدی پارکر — اسپایدر-گرل', years:'۱۹۹۸', y0:1998, issues:'What If #105', writer:'تام دفالکو، ران فرنز', type:'character', era:'dark', chars:['mayday'], sales:7, pop:9,
+about:'دختر پیتر پارکر و مری جین در دنیای MC2؛ وارث واقعی ردای عنکبوتی.',
+summary:'در دنیای MC2 (Earth-982)، می پارکر دختر نوجوان پیتر و مری جین است که قدرت‌های پدرش را به ارث برد. با وجود مخالفت والدینش، لباس اسپایدر-گرل را پوشید و قهرمان شد. سری او یکی از طولانی‌ترین سری‌های قهرمان نوجوان مارول بود.',
+connection:'محبوب‌ترین «نسل بعدی» اسپایدرمن؛ نماد امید طرفداران قدیمی.',
+note:'سری Spider-Girl بیش از ۱۰۰ شماره منتشر شد؛ رکوردی برای یک قهرمان نوجوان.'},
+{id:'char-hobie', en:'SPIDER-PUNK', fa:'هابی براون — اسپایدر-پانک', years:'۲۰۱۵', y0:2015, issues:'Spider-Verse #2', writer:'دن اسلات، اولیویه کواپل', type:'character', era:'current', chars:['hobie'], sales:6, pop:9,
+about:'اسپایدرمن آنارشیست با گیتار الکتریکی؛ قهرمان طبقه کارگر.',
+summary:'در زمین ۱۳۸، هابی براون نوجوانی پانک و بی‌خانمان است که با گیتارش علیه رژیم فاشیستی نورمن آزبورن می‌جنگد. با لباس جین پاره، موهای سیخ‌سیخی و روح شورشی، رهبر مقاومت مردمی شد و با نواختن گیتار دشمنان را شکست می‌دهد!',
+connection:'ستاره صحنه‌های اکشن در Across the Spider-Verse؛ نماد شورش در Spider-Verse.',
+note:'گیتارش واقعاً سلاح است؛ با امواج صوتی دشمنان را نابود می‌کند!'},
+{id:'char-pavitr', en:'SPIDER-MAN INDIA', fa:'پاویتر پرابهکار — اسپایدرمن هند', years:'۲۰۰۵', y0:2005, issues:'Spider-Man: India #1', writer:'جیوان جی. کانگ، سورش سیتارامان، شاراد دواراجان', type:'character', era:'modern', chars:['pavitr'], sales:6, pop:8,
+about:'بازآفرینی هندی اسپایدرمن در بمبئی؛ با الهام از اساطیر هند.',
+summary:'پاویتر پرابهکار پسر روستایی ساده‌ای است که در بمبئی قدرت‌های عنکبوتی گرفت. داستان او بازآفرینی وفادارانه منشأ پیتر پارکر در فرهنگ هند است؛ عمویش با جمله‌ای شبیه «قدرت زیاد، مسئولیت زیاد» او را راهنمایی می‌کند و دشمنش نسخه هندی دکتر اختاپوس با چهار بازوی شیطانی است.',
+connection:'نماینده فرهنگ هند در Spider-Verse؛ حضور پررنگ در Across the Spider-Verse.',
+note:'مینی‌سری ۴ شماره‌ای او به زبان‌های مختلف از جمله هندی منتشر شد.'},
+{id:'char-takuya', en:'JAPANESE SPIDER-MAN', fa:'تاکویا یاماشیرو — اسپایدرمن ژاپنی', years:'۱۹۷۸', y0:1978, issues:'قسمت ۱ سریال توئی (۱۹۷۸)', writer:'شرکت توئی', type:'character', era:'bronze', chars:['takuya'], sales:6, pop:8,
+about:'اسپایدرمن ژاپنی با ربات غول‌پیکر؛ الهام‌بخش کل یک ژانر!',
+summary:'تاکویا یاماشیرو موتورسوار جوانی است که از سیاره اسپایدر قدرت گرفت و با دستبند مخصوص لباسش را می‌پوشد. برخلاف بقیه، ربات غول‌پیکری به نام لئوپاردون دارد که با آن با هیولاهای هفتگی می‌جنگد! این سریال الهام‌بخش سری‌های معروفی مثل پاور رنجرز شد.',
+connection:'نخستین اسپایدرمن لایو-اکشن تاریخ؛ حضور افتخاری در رویداد Spider-Verse کامیک.',
+note:'بدون این سریال، شاید ژانر «ربات غول‌پیکر» (مثل پاور رنجرز) هرگز به وجود نمی‌آمد!'},
+{id:'char-superior', en:'SUPERIOR SPIDER-MAN', fa:'ساپیریور اسپایدرمن — دکتر اختاپوس', years:'۲۰۱۲', y0:2012, issues:'Amazing Spider-Man #700', writer:'دن اسلات، رایان استگمن', type:'character', era:'current', chars:['otto'], sales:9, pop:9,
+about:'وقتی ذهن دکتر اختاپوس در بدن پیتر پارکر گیر افتاد!',
+summary:'دکتر اختاپوس در لحظات مرگش با یک ترفند ذهنی، آگاهی‌اش را با پیتر پارکر عوض کرد و در بدن او بیدار شد! او تصمیم گرفت «اسپایدرمن برتر» باشد؛ خشن‌تر، باهوش‌تر و بی‌رحم‌تر. کم‌کم خاطرات پیتر او را تغییر داد و معنای واقعی قهرمان بودن را فهمید.',
+connection:'یکی از جسورانه‌ترین پیچش‌های داستانی تاریخ اسپایدرمن؛ بحث‌برانگیز و پرفروش.',
+note:'دوره او به‌عنوان اسپایدرمن حدود یک سال و نیم طول کشید (۲۰۱۳ تا ۲۰۱۴).'},
+{id:'char-anya', en:'ARANA · SPIDER-GIRL', fa:'آنیا کورازون — آرانیا', years:'۲۰۰۴', y0:2004, issues:'Amazing Fantasy #1', writer:'فیونا ایوری، مارک بروکس', type:'character', era:'modern', chars:['anya'], sales:6, pop:7,
+about:'دختر نوجوان لاتین‌تبار با قدرت‌های عنکبوتی از یک عنکبوت جادویی.',
+summary:'آنیا کورازون در یک مراسم باستانی توسط یک عنکبوت جادویی گزیده شد و قدرت گرفت. اول با نام «آرانیا» و لباس سنتی جنگید و بعد ردای اسپایدر-گرل را برداشت. یکی از معدود قهرمانان نوجوان لاتین مارول است.',
+connection:'عضو تیم‌های نوجوانان؛ نماینده تنوع فرهنگی در دنیای عنکبوتی.',
+note:'خالکوبی عنکبوتی روی بازویش با قدرتش فعال می‌شود و زره می‌سازد!'},
+{id:'char-julia', en:'SPIDER-WOMAN · ARACHNE', fa:'جولیا کارپنتر — اسپایدر-وومن', years:'۱۹۸۴', y0:1984, issues:'Secret Wars #7', writer:'جیم شوتر، مایک زک', type:'character', era:'bronze', chars:['julia'], sales:6, pop:7,
+about:'دومین اسپایدر-وومن که قدرتش را از یک عنکبوت آزمایشگاهی گرفت.',
+summary:'جولیا کارپنتر مادر جوانی بود که ناخواسته در یک آزمایش دولتی شرکت کرد و قدرت‌های عنکبوتی گرفت. در رویداد Secret Wars به قهرمان تبدیل شد و بعدها با نام «آراکنه» عضو انتقام‌جویان شد. مدتی هم ردای مادام وب را بر عهده گرفت!',
+connection:'از اعضای ثابت تیم‌های انتقام‌جویان در دهه ۲۰۰۰.',
+note:'او تنها اسپایدر-وومنی است که هم مادر است و هم قهرمان تمام‌وقت!'},
+{id:'char-mattie', en:'SPIDER-WOMAN', fa:'متی فرانکلین — اسپایدر-وومن', years:'۱۹۹۸', y0:1998, issues:'Spectacular Spider-Man #262', writer:'جان بیرن، رافائل کایانان', type:'character', era:'dark', chars:['mattie'], sales:5, pop:6,
+about:'نوجوانی که در یک مراسم جادویی قدرت گرفت؛ سومین اسپایدر-وومن.',
+summary:'متی فرانکلین در یک مراسم باستانی قدرت‌های عنکبوتی به دست آورد و سومین اسپایدر-وومن شد. با وجود سن کم، شجاعانه جنگید اما سرنوشت تلخی داشت و در نبرد با مورلان‌ها کشته شد.',
+connection:'قربانی معروف رویداد Spider-Verse؛ مرگش انگیزه‌ای برای دیگر قهرمانان شد.',
+note:'از معدود قهرمانانی که قدرتش را از جادو گرفت، نه علم!'},
+{id:'char-billy', en:'SPIDER-UK', fa:'بیلی برادوک — اسپایدر-یوکی', years:'۲۰۱۴', y0:2014, issues:'Edge of Spider-Verse #2', writer:'جیسون لاتور، رابی رودریگز', type:'character', era:'current', chars:['billy'], sales:6, pop:7,
+about:'مأمور سازمان چندجهانی که از تار عنکبوتی محافظت می‌کند.',
+summary:'بیلی برادوک نسخه بریتانیایی پیتر پارکر است که عضو «کاپیتان بریتانیا کورپس» شد و مأموریتش محافظت از تار چندجهانی (تار زندگی) است. با لهجه بریتانیایی و رفتار رسمی‌اش، در رویدادهای Spider-Verse نقش فرمانده تیم‌های عنکبوتی را داشت.',
+connection:'پل ارتباطی بین دنیای عنکبوتی و دنیای کاپیتان بریتانیا.',
+note:'لباسش پرچم بریتانیا را با طرح عنکبوت ترکیب کرده!'},
+{id:'char-lady', en:'LADY SPIDER', fa:'می ریلی — لیدی اسپایدر', years:'۲۰۱۵', y0:2015, issues:'Spider-Verse #1', writer:'دن اسلات، اولیویه کواپل', type:'character', era:'current', chars:['lady'], sales:6, pop:7,
+about:'نسخه استیم‌پانک عمه می؛ مخترع نابغه عصر ویکتوریایی!',
+summary:'در زمین ۸۰۳ (دنیای استیم‌پانک)، می ریلیِ جوان به‌جای پیتر، با اختراعات بخاری خودش — بازوهای مکانیکی عنکبوتی و لباس مسی — با جرم مبارزه می‌کند. او نشان داد که برای قهرمان شدن نیازی به گزش عنکبوت نیست؛ نبوغ کافی است!',
+connection:'محبوب طرفداران دنیای استیم‌پانک در Spider-Verse.',
+note:'بازوهای مکانیکی او با بخار کار می‌کنند، نه تکنولوژی مدرن!'},
+{id:'char-bailey', en:'SPIDER-BOY', fa:'بیلی بریگز — اسپایدر-بوی', years:'۲۰۲۳', y0:2023, issues:'Spider-Man (2022) #7', writer:'دن اسلات، مارک بگلی', type:'character', era:'current', chars:['bailey'], sales:7, pop:8,
+about:'دستیار فراموش‌شده پیتر که همه خاطره‌اش را از دست داده بودند!',
+summary:'بیلی بریگز پسر ده‌ساله‌ای بود که دستیار پیتر پارکر بود، اما یک طلسم باعث شد همه — حتی خودش — او را فراموش کنند! وقتی طلسم شکست، معلوم شد او قدرت‌های عنکبوتی دارد و به‌عنوان اسپایدر-بوی به ماجراجویی پرداخت.',
+connection:'جدیدترین عضو دنیای عنکبوتی؛ ستاره سری مستقل خودش از ۲۰۲۳.',
+note:'معرفی او یکی از بزرگ‌ترین رازهای یک دهه اخیر کامیک اسپایدرمن بود.'},
+{id:'char-peni', en:'SP//dr', fa:'پنی پارکر — SP//dr', years:'۲۰۱۴', y0:2014, issues:'Edge of Spider-Verse #5', writer:'جرارد وی، جیک وایات', type:'character', era:'current', chars:['peni'], sales:6, pop:8,
+about:'دختر ۱۴ ساله‌ای که با یک ربات عنکبوتی غول‌پیکر می‌جنگد!',
+summary:'در زمین ۱۴۵۱۲، پنی پارکر بعد از مرگ پدرش، خلبان ربات عنکبوتی SP//dr شد؛ رباتی که با یک عنکبوت رادیواکتیویِ همزیست کنترل می‌شود و فقط با DNA خانواده پارکر کار می‌کند. او با ترکیب انیمه و تکنولوژی، سبکی کاملاً متفاوت دارد.',
+connection:'ستاره انیمیشن‌های Spider-Verse؛ محبوب طرفداران انیمه.',
+note:'خالق او جرارد وی، خواننده گروه My Chemical Romance است!'},
+{id:'char-cassandra', en:'MADAME WEB', fa:'کاساندرا وب — مادام وب', years:'۱۹۸۰', y0:1980, issues:'Amazing Spider-Man #210', writer:'دنی اونیل، جان رومیتا جونیور', type:'character', era:'bronze', chars:['cassandra'], sales:6, pop:7,
+about:'پیرزن نابینای پیشگو که تار سرنوشت عنکبوتی را می‌بیند.',
+summary:'کاساندرا وب جهش‌یافته‌ای نابینا و فلج است که به یک سیستم حیات‌بخش وصل است، اما قدرت پیشگویی و تله‌پاتی فوق‌العاده‌ای دارد. او نگهبان «تار زندگی و سرنوشت» است که همه اسپایدرمن‌های چندجهانی را به هم وصل می‌کند و بارها پیتر را راهنمایی کرده.',
+connection:'کلید اسرار چندجهانی عنکبوتی؛ راهنمای معنوی همه اسپایدرمن‌ها.',
+note:'با وجود ناتوانی جسمی، از قدرتمندترین موجودات دنیای عنکبوتی است.'},
+{id:'char-ezekiel', en:'EZEKIEL SIMS', fa:'ازکیل سیمز', years:'۲۰۰۱', y0:2001, issues:'Amazing Spider-Man #30', writer:'جی. مایکل استرازینسکی، جان رومیتا جونیور', type:'character', era:'modern', chars:['ezekiel'], sales:6, pop:7,
+about:'تاجر مرموزی با همان قدرت‌های پیتر؛ که راز «توتم عنکبوت» را فاش کرد.',
+summary:'ازکیل سیمز تاجر ثروتمندی بود که سال‌ها قبل از پیتر، با یک مراسم جادویی قدرت‌های عنکبوتی گرفت. او به پیتر هشدار داد که قدرتش تصادفی نیست؛ او یک «توتم» است، موجودی مقدس که شکارچیانی مثل مورلان دنبالش هستند. این راز، دنیای اسپایدرمن را برای همیشه عوض کرد.',
+connection:'پایه‌گذار اسطوره‌شناسی «توتم» که رویداد Spider-Verse بر اساس آن ساخته شد.',
+note:'قبل از او، همه فکر می‌کردند قدرت پیتر فقط یک حادثه علمی است!'},
 ];
 
 var grid = document.getElementById('grid');
@@ -875,7 +996,7 @@ function typeBadge(t){
 
 function render(){
   var list = filtered();
-  countEl.textContent = faNum(list.length) + ' سری';
+  countEl.textContent = faNum(list.length) + (state.type === 'character' ? ' کاراکتر' : ' سری');
   grid.innerHTML = '';
   if(!list.length){
     grid.innerHTML = '<div class="empty">چیزی پیدا نشد.<br>عبارت دیگری را امتحان کن.</div>';
@@ -931,8 +1052,8 @@ function openSheet(d){
     '<div class="kv"><span class="k">خلاصه داستان</span><span class="v">' + d.summary + '</span></div>' +
     '<div class="kv"><span class="k">ارتباط با دنیای عنکبوتی</span><span class="v">' + d.connection + '</span></div>' +
     '<div class="kv"><span class="k">سال انتشار</span><span class="v">' + d.years + '</span></div>' +
-    '<div class="kv"><span class="k">' + (d.type === 'movie' ? 'مدت' : (d.type === 'tv' ? 'قسمت‌ها' : 'شماره‌ها')) + '</span><span class="v">' + d.issues + '</span></div>' +
-    '<div class="kv"><span class="k">' + (d.type === 'movie' ? 'کارگردان' : (d.type === 'tv' ? 'سازنده' : 'نویسنده')) + '</span><span class="v">' + d.writer + '</span></div>' +
+    '<div class="kv"><span class="k">' + (d.type === 'movie' ? 'مدت' : (d.type === 'tv' ? 'قسمت‌ها' : (d.type === 'character' ? 'اولین حضور' : 'شماره‌ها'))) + '</span><span class="v">' + d.issues + '</span></div>' +
+    '<div class="kv"><span class="k">' + (d.type === 'movie' ? 'کارگردان' : (d.type === 'tv' ? 'سازنده' : (d.type === 'character' ? 'خالق' : 'نویسنده'))) + '</span><span class="v">' + d.writer + '</span></div>' +
     (d.adapt ? '<div class="kv"><span class="k">اقتباس از</span><span class="v">' + d.adapt + '</span></div>' : '') +
     '<div class="kv"><span class="k">شخصیت‌ها</span><span class="v"><span class="chars">' + chars + '</span></span></div>' +
     (d.note ? '<div class="note-box"><b>نکته کلکسیونی: </b>' + d.note + '</div>' : '');
@@ -1068,6 +1189,31 @@ var COVERS = {
 'tv-ultimate':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/6608400-default.jpg',
 'tv-unlimited':'https://comicvine.gamespot.com/a/uploads/scale_medium/11112/111121983/3390452-9882537596-Spide.jpg',
 'tv-yfns':'https://comicvine.gamespot.com/a/uploads/scale_medium/12/128807/9614949-yourfriendlyneighborhoodspider-man.jpg',
+/* ===== character portraits ===== */
+'char-peter':'https://comicvine.gamespot.com/a/uploads/original/0/3848/127622-130694-spider-man.jpg',
+'char-miles':'https://comicvine.gamespot.com/a/uploads/scale_small/11/113509/4989571-5865570722-miles.jpg',
+'char-gwen':'https://comicvine.gamespot.com/a/uploads/scale_super/11/113509/6676723-spider-gwen.png',
+'char-ben':'https://comicvine.gamespot.com/a/uploads/original/3/36207/1120747-ben_reilly_01.jpg',
+'char-kaine':'https://comicvine.gamespot.com/a/uploads/scale_small/1/17809/348878-62134-scarlet-spider.jpg',
+'char-miguel':'https://comicvine.gamespot.com/a/uploads/original/0/40/78501-7575-spider-man-2099.gif',
+'char-ham':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/40/77770-74389-spider-ham.jpg',
+'char-noir':'https://comicvine.gamespot.com/a/uploads/scale_medium/12/124259/9988167-ezgif-8524b7c6fab82521.jpg',
+'char-silk':'https://comicvine.gamespot.com/a/uploads/scale_medium/11116/111167641/8155465-silk_junggeun-yoon-art.jpg',
+'char-jessica':'https://comicvine.gamespot.com/a/uploads/scale_medium/11156/111564182/10179461-spider-woman_vol_7_11_textless.jpg',
+'char-mayday':'https://comicvine.gamespot.com/a/uploads/scale_medium/11170/111705043/8824007-spider-girl.jpg',
+'char-hobie':'https://comicvine.gamespot.com/a/uploads/scale_medium/12/124259/9317918-rco031_1709134803.jpg',
+'char-pavitr':'https://comicvine.gamespot.com/a/uploads/scale_medium/1/14062/286247-147160-spider-man.jpg',
+'char-takuya':'https://static.wikia.nocookie.net/marveldatabase/images/7/7f/Takuya_Yamashiro_%28Earth-51778%29_from_Supaidaman_%28TV_series%29_003.jpg/revision/latest?cb=20080416033252',
+'char-superior':'https://comicvine.gamespot.com/a/uploads/scale_small/13/136403/2767530-2700867_supsm2013001_camunvar_1_.jpg',
+'char-anya':'https://comicvine.gamespot.com/a/uploads/scale_small/11/117787/4438309-1329886623-678ae.jpg',
+'char-julia':'https://comicvine.gamespot.com/a/uploads/original/14/148344/2862531-julia_carpenter_spider_woman.jpg',
+'char-mattie':'https://static.wikia.nocookie.net/marveldatabase/images/8/87/Martha_Franklin_%28Earth-616%29_from_Spider-Woman_Vol_3_9_001.jpg/revision/latest?cb=20070520104002',
+'char-billy':'https://comicvine.gamespot.com/a/uploads/scale_medium/11125/111254576/5389032-william_braddock_%28earth-833%29_002.jpg',
+'char-lady':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/5344/4295419-lady%20spider%2001.jpg',
+'char-bailey':'https://comicvine.gamespot.com/a/uploads/scale_medium/1/15776/9980860-spider-boy.jpg',
+'char-peni':'https://comicvine.gamespot.com/a/uploads/scale_medium/11116/111167641/6588383-peni-parker-sp__dr_spidergeddon.png',
+'char-cassandra':'https://comicvine.gamespot.com/a/uploads/scale_medium/1/15776/10091832-madame_web.jpg',
+'char-ezekiel':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/4115/215103-96019-ezekiel.jpg',
 };
 
 
