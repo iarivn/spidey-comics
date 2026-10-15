@@ -239,7 +239,7 @@
     <div class="search-row">
       <label class="search">
         <svg viewBox="0 0 24 24" fill="none" stroke="#A09AAE" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <input id="q" type="search" placeholder="جست‌وجو بین سری‌ها، شخصیت‌ها، نویسنده‌ها…" autocomplete="off">
+        <input id="q" type="search" placeholder="جست‌وجو بین سری‌ها، فیلم‌ها، شخصیت‌ها، نویسنده‌ها…" autocomplete="off">
       </label>
       <button class="fav-toggle" id="favToggle" aria-label="علاقه‌مندی‌ها">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
@@ -278,8 +278,8 @@
 (function(){
 "use strict";
 
-var CHARS = {peter:'پیتر پارکر', miles:'مایلز مورالز', gwen:'اسپایدر-گوئن', miguel:'میگل اوهارا (۲۰۹۹)', noir:'اسپایدرمن نوآر', jessica:'جسیکا درو', ben:'بن رایلی', kaine:'کین', otto:'دکتر اختاپوس', mayday:'میدی پارکر', pavitr:'پاویتر پرابهکار', silk:'سیلک', anya:'آنیا کورازون', ham:'اسپایدر-هم', peni:'پنی پارکر', hobie:'هابی براون (اسپایدر-پانک)', bailey:'بیلی بریگز (اسپایدر-بوی)'};
-var TYPES = {main:'سری اصلی', limited:'مینی‌سری', event:'ایونت', story:'خط داستانی', alt:'دنیای آلترناتیو', key:'شماره کلیدی'};
+var CHARS = {peter:'پیتر پارکر', miles:'مایلز مورالز', gwen:'اسپایدر-گوئن', miguel:'میگل اوهارا (۲۰۹۹)', noir:'اسپایدرمن نوآر', jessica:'جسیکا درو', ben:'بن رایلی', kaine:'کین', otto:'دکتر اختاپوس', mayday:'میدی پارکر', pavitr:'پاویتر پرابهکار', silk:'سیلک', anya:'آنیا کورازون', ham:'اسپایدر-هم', peni:'پنی پارکر', hobie:'هابی براون (اسپایدر-پانک)', bailey:'بیلی بریگز (اسپایدر-بوی)', takuya:'تاکویا یاماشیرو'};
+var TYPES = {main:'سری اصلی', limited:'مینی‌سری', event:'ایونت', story:'خط داستانی', alt:'دنیای آلترناتیو', key:'شماره کلیدی', movie:'فیلم', tv:'سریال'};
 var ERAS = {silver:'عصر نقره‌ای', bronze:'عصر برنز', dark:'عصر تاریک', modern:'هزاره جدید', current:'معاصر'};
 
 var DATA = [
@@ -615,6 +615,121 @@ connection:'تولد محبوب‌ترین دشمن مدرن اسپایدرمن.
 about:'اولین حضور کامل کارنیج.',
 summary:'کلتوس کسدی با فرزند سیمبیوت ونوم ترکیب می‌شود؛ قاتلی بی‌رحم‌تر از ونوم که اسپایدرمن را مجبور به اتحاد با ونوم می‌کند.',
 connection:'تولد کارنیج؛ شروع خط سیمبیوت‌های خشن دهه ۹۰.'},
+{id:'mv-sm1', en:'SPIDER-MAN (2002)', fa:'اسپایدرمن (۲۰۰۲)', years:'۲۰۰۲', y0:2002, issues:'۱۲۱ دقیقه', writer:'سم ریمی', type:'movie', era:'modern', chars:['peter'], sales:8, pop:10,
+about:'شروع سه‌گانه ریمی؛ فیلمی که ژانر ابرقهرمانی را نجات داد.',
+summary:'پیتر پارکر، دانشجوی خجالتی، توسط عنکبوت جهش‌یافته گزیده می‌شود؛ در همین حین نورمن آزبورن در آزمایشی دیوانه می‌شود و گرین گابلین متولد می‌شود. نبردی که با مرگ نورمن تمام می‌شود.',
+connection:'نخستین فیلم سینمایی بزرگ اسپایدرمن؛ الگوی فیلم‌های ابرقهرمانی دهه ۲۰۰۰.',
+adapt:'Amazing Fantasy #15 (ریشه‌ها)، ASM #39-40 (گرین گابلین)، Ultimate Spider-Man'},
+{id:'mv-sm2', en:'SPIDER-MAN 2 (2004)', fa:'اسپایدرمن ۲ (۲۰۰۴)', years:'۲۰۰۴', y0:2004, issues:'۱۲۷ دقیقه', writer:'سم ریمی', type:'movie', era:'modern', chars:['peter'], sales:7, pop:10,
+about:'از نگاه خیلی‌ها بهترین فیلم اسپایدرمن؛ اقتباس مستقیم از ASM #50.',
+summary:'پیتر زیر بار زندگی دوگانه خم شده و لباس را کنار می‌گذارد؛ اما دکتر اختاپوس با بازوهای مکانیکی‌اش شهر را تهدید می‌کند و پیتر باید برگردد.',
+connection:'از تحسین‌شده‌ترین فیلم‌های ابرقهرمانی تاریخ.',
+adapt:'ASM #50 (دیگر نه!)، ASM #3 (دکتر اختاپوس)'},
+{id:'mv-sm3', en:'SPIDER-MAN 3 (2007)', fa:'اسپایدرمن ۳ (۲۰۰۷)', years:'۲۰۰۷', y0:2007, issues:'۱۳۹ دقیقه', writer:'سم ریمی', type:'movie', era:'modern', chars:['peter'], sales:8, pop:7,
+about:'پایان سه‌گانه ریمی؛ لباس سیاه، سندمن و ونوم.',
+summary:'سیمبیوت فضایی به پیتر می‌چسبد و نیمه تاریکش را بیدار می‌کند؛ در همین حین سندمن، هری آزبورن و ادی براک/ونوم هر کدام سهمی از نبرد پایانی دارند.',
+connection:'پایان‌بندی جنجالی سه‌گانه؛ با وجود نقدها، پرفروش‌ترین فیلم سه‌گانه.',
+adapt:'ASM #252 به بعد (حماسه لباس سیاه)، ASM #300 (ونوم)، ASM #4 (سندمن)، ASM #121-122'},
+{id:'mv-tasm1', en:'THE AMAZING SPIDER-MAN (2012)', fa:'اسپایدرمن شگفت‌انگیز (۲۰۱۲)', years:'۲۰۱۲', y0:2012, issues:'۱۳۶ دقیقه', writer:'مارک وب', type:'movie', era:'modern', chars:['peter','gwen'], sales:7, pop:7,
+about:'ریبوت با اندرو گارفیلد؛ راز والدین پیتر.',
+summary:'پیترِ دبیرستانی دنبال راز ناپدید شدن والدینش می‌گردد؛ در همین مسیر دکتر کرت کانرز به لیزارد تبدیل می‌شود و گوئن استیسی وارد زندگی‌اش می‌شود.',
+connection:'شروعی تازه با حال‌وهوای واقع‌گرایانه‌تر و عاشقانه پررنگ‌تر.',
+adapt:'Ultimate Spider-Man (دبیرستان و راز والدین)، ASM #6 (لیزارد)'},
+{id:'mv-tasm2', en:'THE AMAZING SPIDER-MAN 2 (2014)', fa:'اسپایدرمن شگفت‌انگیز ۲ (۲۰۱۴)', years:'۲۰۱۴', y0:2014, issues:'۱۴۲ دقیقه', writer:'مارک وب', type:'movie', era:'modern', chars:['peter','gwen'], sales:6, pop:7,
+about:'فیلمی که مرگ گوئن را به سینما آورد.',
+summary:'الکترو و گرین گابلین (هری آزبورن) هم‌زمان ظهور می‌کنند؛ اوج فیلم، بازسازی وفادارانه مرگ گوئن از کامیک است.',
+connection:'پایان ناگهانی دنیای گارفیلد؛ صحنه مرگ گوئن از ماندگارترین لحظات سینمایی.',
+adapt:'ASM #121-122 (مرگ گوئن)، ASM #9 (الکترو)، ASM #39-40 (گابلین)'},
+{id:'mv-homecoming', en:'SPIDER-MAN: HOMECOMING (2017)', fa:'اسپایدرمن: بازگشت به خانه (۲۰۱۷)', years:'۲۰۱۷', y0:2017, issues:'۱۳۳ دقیقه', writer:'جان واتس', type:'movie', era:'current', chars:['peter'], sales:8, pop:9,
+about:'ورود اسپایدرمن به دنیای سینمایی مارول.',
+summary:'پیترِ ۱۵ ساله بعد از نبرد فرودگاه بی‌تاب مأموریت بزرگ است؛ آدرین تومز/والچر با سلاح‌های بیگانه، دشمنی در مقیاس محله‌ای می‌سازد.',
+connection:'تازه‌سازی شخصیت برای نسل جدید؛ اسپایدرمنِ نوجوانِ واقعی.',
+adapt:'ASM #2 (والچر)، ASM #33 (صحنه آوار)، Ultimate Spider-Man'},
+{id:'mv-itsv', en:'SPIDER-MAN: INTO THE SPIDER-VERSE (2018)', fa:'اسپایدرمن: به درون دنیای عنکبوتی (۲۰۱۸)', years:'۲۰۱۸', y0:2018, issues:'۱۱۷ دقیقه', writer:'باب پرسیکتی، پیتر رمزی', type:'movie', era:'current', chars:['miles','gwen','ham','peni','noir','peter'], sales:6, pop:10,
+about:'انقلابی در انیمیشن؛ برنده اسکار بهترین انیمیشن.',
+summary:'مایلز مورالزِ بروکلینی بعد از مرگ پیترِ دنیای خودش، با عنکبوت‌های دنیاهای دیگر (گوئن، نوآر، هم، پنی، پیتر بی) تیم می‌شود تا مولتی‌ورس را نجات دهند.',
+connection:'از مهم‌ترین آثار کل تاریخ اسپایدرمن؛ تولد سینمایی مایلز.',
+adapt:'Spider-Verse (ایونت ۲۰۱۴)، Ultimate Fallout #4 (مایلز)، Edge of Spider-Verse'},
+{id:'mv-ffh', en:'SPIDER-MAN: FAR FROM HOME (2019)', fa:'اسپایدرمن: دور از خانه (۲۰۱۹)', years:'۲۰۱۹', y0:2019, issues:'۱۲۹ دقیقه', writer:'جان واتس', type:'movie', era:'current', chars:['peter'], sales:9, pop:8,
+about:'اسپایدرمن در اروپا؛ میستریو.',
+summary:'در سفر مدرسه به اروپا، پیتر با کوئنتین بک/میستریو روبه‌رو می‌شود که با توهم‌سازی خودش را قهرمان جا زده؛ پایانی با افشای هویت پیتر.',
+connection:'اولین فیلم میلیارد دلاری اسپایدرمن.',
+adapt:'ASM #13 (میستریو)'},
+{id:'mv-nwh', en:'SPIDER-MAN: NO WAY HOME (2021)', fa:'اسپایدرمن: راهی به خانه نیست (۲۰۲۱)', years:'۲۰۲۱', y0:2021, issues:'۱۴۸ دقیقه', writer:'جان واتس', type:'movie', era:'current', chars:['peter'], sales:10, pop:10,
+about:'بزرگ‌ترین رویداد سینمایی اسپایدرمن؛ هر سه اسپایدرمن کنار هم.',
+summary:'بعد از افشای هویت، طلسم دکتر استرنج دنیاها را به هم می‌ریزد؛ تابی مگوایر و اندرو گارفیلد برمی‌گردند و سه نسل اسپایدرمن با دشمنان گذشته می‌جنگند.',
+connection:'نقطه اوج ۲۰ سال سینمای اسپایدرمن؛ از پرفروش‌ترین فیلم‌های تاریخ.',
+adapt:'One More Day (طلسم فراموشی)، Spider-Verse، ASM #121-122'},
+{id:'mv-atsv', en:'SPIDER-MAN: ACROSS THE SPIDER-VERSE (2023)', fa:'اسپایدرمن: در میان دنیای عنکبوتی (۲۰۲۳)', years:'۲۰۲۳', y0:2023, issues:'۱۴۰ دقیقه', writer:'ژواکیم دوس سانتوس', type:'movie', era:'current', chars:['miles','gwen','hobie'], sales:7, pop:10,
+about:'ادامه انقلابی؛ مایلز علیه جامعه عنکبوتی.',
+summary:'مایلز به جامعه عنکبوتی میگل اوهارا می‌پیوندد اما وقتی می‌فهمد باید بگذارد پدرش بمیرد تا «رویدادهای کانونی» حفظ شود، علیه همه عنکبوت‌ها می‌ایستد.',
+connection:'از نظر بصری جسورانه‌ترین انیمیشن تاریخ؛ پایان باز به سوی Beyond.',
+adapt:'Spider-Geddon، Edge of Spider-Verse'},
+{id:'tv-1967', en:'SPIDER-MAN (1967)', fa:'اسپایدرمن (۱۹۶۷)', years:'۱۹۶۷ تا ۱۹۷۰', y0:1967, issues:'۳ فصل، ۵۲ قسمت', writer:'گرانت سیمونز', type:'tv', era:'silver', chars:['peter'], sales:4, pop:7,
+about:'اولین سریال انیمیشنی؛ با همان تم‌موزیک معروف.',
+summary:'ماجراهای کلاسیک پیتر با دشمنانی مثل دکتر اختاپوس و گرین گابلین؛ انیمیشن محدود اما نوستالژیک با آهنگ تیتراژ فراموش‌نشدنی.',
+connection:'نخستین حضور تلویزیونی اسپایدرمن.',
+adapt:'ASM (دوره لی/دیتکو/رومیتا)'},
+{id:'tv-1981', en:'SPIDER-MAN (1981)', fa:'اسپایدرمن (۱۹۸۱)', years:'۱۹۸۱ تا ۱۹۸۲', y0:1981, issues:'۱ فصل، ۲۶ قسمت', writer:'مارول پروداکشنز', type:'tv', era:'bronze', chars:['peter'], sales:3, pop:6,
+about:'سریال انفرادی دهه ۸۰ با دشمنان کلاسیک.',
+summary:'هر قسمت نبرد با یکی از دشمنان کلاسیک: میستریو، لیزارد، کرون و دیگران.',
+connection:'هم‌زمان با Amazing Friends پخش می‌شد.',
+adapt:'ASM (داستان‌های کلاسیک دهه ۶۰ و ۷۰)'},
+{id:'tv-amazingfriends', en:'SPIDER-MAN AND HIS AMAZING FRIENDS', fa:'اسپایدرمن و دوستان شگفت‌انگیزش', years:'۱۹۸۱ تا ۱۹۸۳', y0:1981, issues:'۳ فصل، ۲۴ قسمت', writer:'مارول پروداکشنز', type:'tv', era:'bronze', chars:['peter'], sales:3, pop:7,
+about:'اسپایدرمن، آیس‌من و فایراستار؛ تیم نوجوانان.',
+summary:'پیتر با بابی دریک (آیس‌من) و انجلکا جونز (فایراستار، شخصیت ساخته‌شده برای سریال) تیم «دوستان شگفت‌انگیز» را تشکیل می‌دهد.',
+connection:'معرفی فایراستار که بعداً وارد کامیک هم شد.',
+adapt:'قالب تیمی اورجینال با الهام از ASM'},
+{id:'tv-1977', en:'THE AMAZING SPIDER-MAN (1977)', fa:'اسپایدرمن شگفت‌انگیز (۱۹۷۷)', years:'۱۹۷۷ تا ۱۹۷۹', y0:1977, issues:'۲ فصل، ۱۳ قسمت', writer:'سی‌بی‌اس', type:'tv', era:'bronze', chars:['peter'], sales:3, pop:6,
+about:'اولین سریال لایواکشن؛ با نیکلاس هاموند.',
+summary:'پیترِ دانشجو با تبهکاران معمولی می‌جنگد؛ بدون ابرشرورهای کامیک و با بودجه تلویزیونی دهه ۷۰.',
+connection:'نخستین اسپایدرمنِ واقعی تلویزیون.',
+adapt:'اقتباس آزاد از ASM'},
+{id:'tv-japan', en:'JAPANESE SPIDER-MAN (1978)', fa:'اسپایدرمن ژاپنی (۱۹۷۸)', years:'۱۹۷۸ تا ۱۹۷۹', y0:1978, issues:'۱ فصل، ۴۱ قسمت', writer:'توئی', type:'tv', era:'bronze', chars:['takuya'], sales:3, pop:8,
+about:'توئی، ربات غول‌پیکر و فرمول سوپرسنتای؛ افسانه‌ای در نوع خود.',
+summary:'تاکویا یاماشیرو با دستبند عنکبوتی، سفینه مارولر و ربات غول‌پیکر لئوپاردون علیه ارتش صلیب آهنی می‌جنگد؛ فرمولی که بعداً پاور رنجرز را ساخت.',
+connection:'الهام‌بخش ژانر سوپرسنتای؛ محبوب کالتی طرفداران.',
+adapt:'اقتباس بسیار آزاد از ASM (فقط نام و المان‌های پایه)'},
+{id:'tv-tas', en:'SPIDER-MAN: THE ANIMATED SERIES (1994)', fa:'اسپایدرمن: سریال انیمیشنی (۱۹۹۴)', years:'۱۹۹۴ تا ۱۹۹۸', y0:1994, issues:'۵ فصل، ۶۵ قسمت', writer:'جان سمپر', type:'tv', era:'dark', chars:['peter'], sales:5, pop:10,
+about:'محبوب‌ترین سریال انیمیشنی اسپایدرمن تاریخ.',
+summary:'از داستان‌های کلاسیک (گابلین، سیمبیوت) تا Secret Wars و Spider Wars؛ پخته‌ترین روایت تلویزیونی با پایان چندجهانی.',
+connection:'نسل دهه ۷۰ شمسی با همین سریال عاشق اسپایدرمن شد.',
+adapt:'ASM (داستان‌های کلاسیک)، Secret Wars، Clone Saga'},
+{id:'tv-unlimited', en:'SPIDER-MAN UNLIMITED (1999)', fa:'اسپایدرمن نامحدود (۱۹۹۹)', years:'۱۹۹۹ تا ۲۰۰۱', y0:1999, issues:'۱ فصل، ۱۳ قسمت', writer:'مارول/سابان', type:'tv', era:'modern', chars:['peter'], sales:3, pop:7,
+about:'اسپایدرمن در کانتر-ارث با لباس نانویی.',
+summary:'پیتر برای نجات جان جیمسون به سیاره کانتر-ارث می‌رود؛ با لباس نانویی در برابر بستیال‌ها.',
+connection:'سریالی که کمیک‌اش هم در اپ هست (Spider-Man Unlimited 1999).',
+adapt:'داستان اورجینال (مرتبط با کمیک Spider-Man Unlimited)'},
+{id:'tv-2003', en:'SPIDER-MAN: THE NEW ANIMATED SERIES (2003)', fa:'اسپایدرمن: سری انیمیشنی تازه (۲۰۰۳)', years:'۲۰۰۳', y0:2003, issues:'۱ فصل، ۱۳ قسمت', writer:'برایان مایکل بندیس', type:'tv', era:'modern', chars:['peter'], sales:3, pop:6,
+about:'ادامه سینمایی ریمی با انیمیشن سه‌بعدی.',
+summary:'داستان بعد از فیلم ۲۰۰۲ ریمی؛ با سبک بصری سل‌شید و دشمنانی مثل الکترو و کرون.',
+connection:'پل بین فیلم اول ریمی و دنیای انیمیشن.',
+adapt:'ادامه فیلم Spider-Man (2002)'},
+{id:'tv-spectacular', en:'THE SPECTACULAR SPIDER-MAN (2008)', fa:'اسپایدرمن تماشایی (۲۰۰۸)', years:'۲۰۰۸ تا ۲۰۰۹', y0:2008, issues:'۲ فصل، ۲۶ قسمت', writer:'گرگ وایزمن', type:'tv', era:'modern', chars:['peter','gwen'], sales:5, pop:10,
+about:'از نظر خیلی‌ها بهترین سریال؛ قربانی اختلاف سونی و دیزنی.',
+summary:'پیترِ دبیرستانی با خط‌های داستانی پیوسته (گرین گابلین، سیمبیوت، مستر پلنر)؛ روایتی فشرده و هوشمند از سال‌های اول.',
+connection:'با وجود فقط ۲ فصل، طرفداران پرشوری دارد.',
+adapt:'ASM (دوره لی/دیتکو)، Ultimate Spider-Man، ASM #252 (لباس سیاه)'},
+{id:'tv-ultimate', en:'ULTIMATE SPIDER-MAN (2012)', fa:'آلتیمیت اسپایدرمن (۲۰۱۲)', years:'۲۰۱۲ تا ۲۰۱۷', y0:2012, issues:'۴ فصل، ۱۰۴ قسمت', writer:'مارول انیمیشن', type:'tv', era:'modern', chars:['peter'], sales:4, pop:7,
+about:'اسپایدرمنِ تیمی با نیک فیوری و شیلد.',
+summary:'پیتر به تیم شیلد می‌پیوندد و با نوا، آیرون فیست، وایت تایگر و پاورمن مأموریت می‌رود؛ با طنز و شکستن دیوار چهارم.',
+connection:'طولانی‌ترین سریال انیمیشنی اسپایدرمن.',
+adapt:'Ultimate Spider-Man (قالب و حال‌وهوا)'},
+{id:'tv-marvels', en:"MARVEL'S SPIDER-MAN (2017)", fa:'اسپایدرمن مارول (۲۰۱۷)', years:'۲۰۱۷ تا ۲۰۲۰', y0:2017, issues:'۳ فصل، ۵۸ قسمت', writer:'مارول انیمیشن', type:'tv', era:'current', chars:['peter','miles'], sales:4, pop:8,
+about:'پیتر در مدرسه افق؛ با حضور مایلز.',
+summary:'پیتر در دبیرستان Horizon High با تکنولوژی پیشرفته؛ مایلز مورالز هم به‌عنوان اسپایدر دوم حضور دارد.',
+connection:'پل بین نسل پیتر و مایلز در انیمیشن.',
+adapt:'ASM + Ultimate Spider-Man'},
+{id:'tv-spideyfriends', en:'SPIDEY AND HIS AMAZING FRIENDS', fa:'اسپایدی و دوستان شگفت‌انگیزش', years:'۲۰۲۱ تاکنون', y0:2021, issues:'ادامه‌دار', writer:'مارول انیمیشن', type:'tv', era:'current', chars:['peter','miles','gwen'], sales:3, pop:7,
+about:'اسپایدرمن برای خردسالان؛ با مایلز و گوئن.',
+summary:'نسخه کودکانه با پیتر، مایلز و گوئن که با هم مأموریت‌های ساده و آموزشی انجام می‌دهند.',
+connection:'نخستین آشنایی نسل جدید با دنیای عنکبوتی.',
+adapt:'اورجینال (الهام کلی از دنیای عنکبوتی)'},
+{id:'tv-yfns', en:'YOUR FRIENDLY NEIGHBORHOOD SPIDER-MAN', fa:'اسپایدرمن همسایه دوست‌داشتنی شما', years:'۲۰۲۵', y0:2025, issues:'۱ فصل (ادامه دارد)', writer:'مارول انیمیشن', type:'tv', era:'current', chars:['peter'], sales:5, pop:9,
+about:'چه می‌شد اگر...؟ اسپایدرمنِ همسایه در دنیای موازی MCU.',
+summary:'بازگویی ریشه‌ها در خط زمانی موازی که نورمن آزبورن (نه تونی استارک) راهنمای پیتر است؛ با انیمیشن کمیک‌بوکی.',
+connection:'تازه‌ترین سریال؛ فصل‌های بعدی در راه است.',
+adapt:'ASM (سال‌های اول)، Ultimate Spider-Man'},
 ];
 
 var grid = document.getElementById('grid');
@@ -754,8 +869,9 @@ function openSheet(d){
     '<div class="kv"><span class="k">خلاصه داستان</span><span class="v">' + d.summary + '</span></div>' +
     '<div class="kv"><span class="k">ارتباط با دنیای عنکبوتی</span><span class="v">' + d.connection + '</span></div>' +
     '<div class="kv"><span class="k">سال انتشار</span><span class="v">' + d.years + '</span></div>' +
-    '<div class="kv"><span class="k">شماره‌ها</span><span class="v">' + d.issues + '</span></div>' +
-    '<div class="kv"><span class="k">نویسنده</span><span class="v">' + d.writer + '</span></div>' +
+    '<div class="kv"><span class="k">' + (d.type === 'movie' ? 'مدت' : (d.type === 'tv' ? 'قسمت‌ها' : 'شماره‌ها')) + '</span><span class="v">' + d.issues + '</span></div>' +
+    '<div class="kv"><span class="k">' + (d.type === 'movie' ? 'کارگردان' : (d.type === 'tv' ? 'سازنده' : 'نویسنده')) + '</span><span class="v">' + d.writer + '</span></div>' +
+    (d.adapt ? '<div class="kv"><span class="k">اقتباس از</span><span class="v">' + d.adapt + '</span></div>' : '') +
     '<div class="kv"><span class="k">شخصیت‌ها</span><span class="v"><span class="chars">' + chars + '</span></span></div>' +
     (d.note ? '<div class="note-box"><b>نکته کلکسیونی: </b>' + d.note + '</div>' : '');
   overlay.classList.add('open');
@@ -867,6 +983,29 @@ var COVERS = {
 'asm361':'https://comicvine.gamespot.com/a/uploads/scale_medium/8/84205/4146362-%24_57.jpg',
 'asm50':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/4365805-50.jpg',
 'asm96':'https://comicvine.gamespot.com/a/uploads/scale_medium/11113/111138606/4652603-dig031361_1.jpg',
+'mv-atsv':'https://comicvine.gamespot.com/a/uploads/scale_medium/11170/111705043/8921696-across12.jpg',
+'mv-ffh':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/6768088-1597896656-spide.jpg',
+'mv-homecoming':'https://comicvine.gamespot.com/a/uploads/scale_medium/5/55582/5943413-spider_man_poster2.jpg',
+'mv-itsv':'https://comicvine.gamespot.com/a/uploads/scale_medium/5/55582/6632796-spiderman_into_the_spiderverse_xlg.jpg',
+'mv-nwh':'https://comicvine.gamespot.com/a/uploads/scale_medium/11142/111427220/8628565-nwhfinalposter.jpeg',
+'mv-sm1':'https://image.tmdb.org/t/p/original/wZGlaMxBAjCIYLzyDWvocaoNooZ.jpg',
+'mv-sm2':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/40/869113-spiderman2_2.jpg',
+'mv-sm3':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/77/869559-sm3_int_poster.jpg',
+'mv-tasm1':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/62058/2320796-asm_dom_in3d_reald3d_imax3d_1sheet_720.jpg',
+'mv-tasm2':'https://comicvine.gamespot.com/a/uploads/scale_medium/10/100647/3815564-jamie-foxx%2C-emma-stone%2C-andrew-garfield-and-dane-dehaan-in-uimitorul-om-paianjen-2-%282014%29-large-picture.jpg',
+'tv-1967':'https://comicvine.gamespot.com/a/uploads/scale_medium/0/40/3332062-5tsybgegoly.jpg',
+'tv-1977':'https://artworks.thetvdb.com/banners/v4/movie/38645/posters/61eb07db343dd.jpg',
+'tv-1981':'https://image.tmdb.org/t/p/w500/Y43QSDxYivUkmw7eFm1JR3Qqwc.jpg',
+'tv-2003':'https://comicvine.gamespot.com/a/uploads/scale_medium/12/122413/3532740-220px-spider-man_new-animated-series-season-1.jpg',
+'tv-amazingfriends':'https://comicvine.gamespot.com/a/uploads/scale_medium/11/110802/3334449-spiderman%20and%20his%20amazing%20friends%20-%201x01%20-%20triumph%20of%20the%20green%20goblin%20dvdrip.avi_000019480.jpg',
+'tv-japan':'https://image.tmdb.org/t/p/original/hi98SQoZgxBMHmWsbhxyh5tNQcB.jpg',
+'tv-marvels':'https://image.tmdb.org/t/p/w500/dKdcyyHUR5WTMnrbPdYN5y9xPVp.jpg',
+'tv-spectacular':'https://comicvine.gamespot.com/a/uploads/scale_medium/1/14787/3332158-6730999621-46769.jpg',
+'tv-spideyfriends':'https://comicvine.gamespot.com/a/uploads/scale_medium/13/135098/8086089-marvels-spidey-and-his-amazing-friends-poster.jpg',
+'tv-tas':'https://comicvine.gamespot.com/a/uploads/scale_medium/11/117930/3332280-2piscllutfxcxds.jpg',
+'tv-ultimate':'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/6608400-default.jpg',
+'tv-unlimited':'https://comicvine.gamespot.com/a/uploads/scale_medium/11112/111121983/3390452-9882537596-Spide.jpg',
+'tv-yfns':'https://comicvine.gamespot.com/a/uploads/scale_medium/12/128807/9614949-yourfriendlyneighborhoodspider-man.jpg',
 };
 
 
