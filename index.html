@@ -15,6 +15,36 @@
     --red:#E62429; --red-dark:#A31217; --cream:#F5F1E8; --muted:#A09AAE;
     --gold:#F5B301; --blue:#2E6BE6;
   }
+
+  /* ===== light mode ===== */
+  body.light{
+    --bg:#F6F2E9; --card:#FFFFFF; --card2:#EFE8D8; --line:#DCD2B8;
+    --red:#D21F26; --red-dark:#A31217; --cream:#1B1B23; --muted:#6F6A7C;
+    --gold:#B87E00; --blue:#2456C8;
+    background-image:radial-gradient(rgba(20,20,30,.06) 1px, transparent 1.4px);
+  }
+  body.light .badge{background:var(--card2);}
+  body.light .badge.red{color:#C41E24;}
+  body.light .badge.blue{color:#2456C8;}
+  body.light .badge.gold{color:#B87E00;}
+  body.light .bm{background:var(--card2);}
+  body.light .close-x{background:var(--card2);}
+  body.light .hero h1{text-shadow:3px 3px 0 rgba(210,31,38,.13);}
+  body.light .card:hover{box-shadow:0 14px 30px rgba(210,31,38,.12);}
+  body.light .overlay{background:rgba(35,32,28,.55);}
+  body.light .search input::placeholder{color:#9A94A6;}
+  body.light .fbtn.on{background:var(--red); border-color:var(--red); color:#fff;}
+  .theme-btn{
+    position:absolute; top:14px; left:14px; width:42px; height:42px; border-radius:50%;
+    background:var(--card); border:1.5px solid var(--line); color:var(--cream);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5;
+    transition:transform .2s ease, background-color .3s ease, color .3s ease;
+  }
+  .theme-btn:active{transform:scale(.88);}
+  .theme-btn svg{width:20px; height:20px;}
+  .theme-btn .sun{display:none;}
+  body.light .theme-btn .sun{display:block;}
+  body.light .theme-btn .moon{display:none;}
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html{scroll-behavior:smooth;}
   body{
@@ -99,7 +129,7 @@
     background:linear-gradient(160deg,var(--card2),var(--card));
     border:1.5px solid var(--line); border-radius:20px; padding:20px;
     cursor:pointer; position:relative; overflow:hidden;
-    transition:transform .25s cubic-bezier(.32,.72,0,1), border-color .25s ease, box-shadow .25s ease;
+    transition:transform .25s cubic-bezier(.32,.72,0,1), border-color .25s ease, box-shadow .25s ease, background-color .3s ease;
     animation:cardIn .5s cubic-bezier(.32,.72,0,1) backwards;
   }
   @keyframes cardIn{from{opacity:0; transform:translateY(16px) scale(.98);} to{opacity:1; transform:none;}}
@@ -191,6 +221,10 @@
 <div class="wrap">
 
   <header class="hero">
+    <button id="themeBtn" class="theme-btn" aria-label="تغییر حالت روشن / تیره">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    </button>
     <svg class="web" viewBox="0 0 64 64" fill="none" stroke="#E62429" stroke-width="2">
       <circle cx="32" cy="32" r="6"/>
       <path d="M32 2v60M2 32h60M11 11l42 42M53 11L11 53"/>
@@ -558,6 +592,15 @@ var FKEY = 'spidey-favs-v1';
 var favs = {};
 try { favs = JSON.parse(localStorage.getItem(FKEY) || '{}'); } catch(e){ favs = {}; }
 function saveFavs(){ try { localStorage.setItem(FKEY, JSON.stringify(favs)); } catch(e){} }
+
+/* ===== theme (dark / light) ===== */
+var TKEY = 'spidey-theme';
+try { if (localStorage.getItem(TKEY) === 'light') document.body.classList.add('light'); } catch(e){}
+document.getElementById('themeBtn').addEventListener('click', function(){
+  var light = !document.body.classList.contains('light');
+  document.body.classList.toggle('light', light);
+  try { localStorage.setItem(TKEY, light ? 'light' : 'dark'); } catch(e){}
+});
 
 var state = { q:'', type:'', char:'', era:'', sort:'yearAsc', favOnly:false };
 
