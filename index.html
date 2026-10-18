@@ -274,28 +274,144 @@
   .scover{width:148px; aspect-ratio:2/3; border-radius:12px; object-fit:cover; float:left; margin:2px 0 12px 14px; border:1.5px solid var(--line); background:#0a0a0d;}
   .gear svg{width:20px;height:20px;}
   .gear:active{transform:scale(.92) rotate(30deg);}
+
+  /* ===== scroll-driven Spider-Man descent intro ===== */
+  .descent{position:relative;height:340vh;background:#04060C;overflow:clip}
+  .d-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;direction:ltr}
+  .d-sky{position:absolute;inset:0;background:radial-gradient(1200px 700px at 70% -10%,#101B3A 0%,#070B16 55%,#04060C 100%)}
+  .d-stars{position:absolute;inset:0}
+  .d-stars i{position:absolute;background:#fff;border-radius:50%;animation:dtw 3.2s infinite ease-in-out}
+  @keyframes dtw{50%{opacity:.2}}
+  .d-moon{position:absolute;top:8%;right:11%;width:104px;height:104px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#FDF6E3,#E8DCC0 60%,#C9BCA0);
+    box-shadow:0 0 60px 18px rgba(253,246,227,.16),0 0 150px 46px rgba(150,175,255,.07)}
+  .d-city{position:absolute;left:0;right:0;bottom:-2px;height:36vh}
+  .d-city svg{position:absolute;bottom:0;left:0;width:100%;height:100%}
+  .d-city.back{z-index:1;opacity:.85}
+  .d-city.front{z-index:2}
+  .blink{animation:dblink 1.6s infinite}
+  @keyframes dblink{50%{opacity:.15}}
+  .pendulum{position:absolute;top:-2px;left:50%;width:0;transform-origin:50% 0;z-index:5;will-change:transform}
+  .webline{position:absolute;top:0;left:-1.5px;width:3px;height:110vh;transform-origin:50% 0;transform:scaleY(0);
+    background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,.5));will-change:transform}
+  .spidey-wrap{position:absolute;top:0;left:0;transform:translate(-50%,-46vh);will-change:transform}
+  .spidey-wrap svg{display:block;width:min(230px,50vw);height:auto;filter:drop-shadow(0 18px 26px rgba(0,0,0,.5))}
+  .thwip{position:absolute;top:5vh;left:30px;transform:scale(0);opacity:0;z-index:6;will-change:transform}
+  .thwip svg{width:118px;height:auto;overflow:visible;filter:drop-shadow(0 6px 14px rgba(0,0,0,.4))}
+  .d-hero{position:absolute;left:0;right:0;bottom:11vh;text-align:center;padding:0 22px;z-index:4;opacity:0;transform:translateY(46px);will-change:transform,opacity}
+  .d-hero .kicker{display:inline-block;font-size:13px;font-weight:700;color:#fff;
+    background:linear-gradient(160deg,rgba(193,18,31,.78),rgba(127,13,22,.78));
+    padding:7px 20px;border-radius:999px;letter-spacing:.5px;margin-bottom:18px;
+    border:1px solid rgba(255,255,255,.25);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 8px 24px rgba(193,18,31,.35)}
+  .d-hero h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(36px,8vw,70px);
+    letter-spacing:4px;color:#E0303E;direction:ltr;line-height:1.12;text-transform:uppercase;
+    text-shadow:3px 3px 0 rgba(193,18,31,.3);margin:0 0 8px}
+  .d-hero p{color:#B9B3C7;font-size:15px;margin:10px auto 0;line-height:2;max-width:640px}
+  .d-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:6;
+    display:flex;flex-direction:column;align-items:center;gap:6px;color:#C9D2EA;font-size:13px;font-weight:600}
+  .d-hint svg{width:22px;height:22px;animation:dhint 1.6s infinite ease-in-out}
+  @keyframes dhint{50%{transform:translateY(7px);opacity:.5}}
+  .d-theme{left:auto !important;right:16px;top:16px;z-index:20}
+  @media(max-width:700px){
+    .descent{height:300vh}
+    .d-moon{width:70px;height:70px;top:6%;right:8%}
+    .thwip{left:14px}
+    .thwip svg{width:88px}
+    .d-hero{bottom:9vh}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .d-stars i,.blink,.d-hint svg{animation:none}
+  }
 </style>
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>try{if(localStorage.getItem('spidey-theme')!=='dark')document.documentElement.style.background='#F6F2E9';}catch(e){document.documentElement.style.background='#F6F2E9';}</script>
 <script data-goatcounter="https://arian.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
-<div class="wrap">
+<section class="descent" id="descent" dir="ltr" aria-label="Spider-Man descent intro">
+    <div class="d-sticky">
+      <div class="d-sky"></div>
+      <div class="d-stars" id="dStars"></div>
+      <div class="d-moon" id="dMoon"></div>
+      <div class="d-city back" id="cityBack">
+        <svg viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <path fill="#0C1428" d="M0,220 L0,140 L60,140 L60,100 L110,100 L110,150 L170,150 L170,80 L230,80 L230,120 L290,120 L290,60 L350,60 L350,140 L420,140 L420,110 L480,110 L480,150 L560,150 L560,90 L640,90 L640,130 L700,130 L700,70 L780,70 L780,120 L850,120 L850,100 L920,100 L920,150 L1000,150 L1000,85 L1080,85 L1080,125 L1150,125 L1150,65 L1220,65 L1220,140 L1300,140 L1300,110 L1360,110 L1360,150 L1440,150 L1440,220 Z"/>
+        </svg>
+      </div>
+      <div class="d-city front" id="cityFront">
+        <svg viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <path fill="#05080F" d="M0,220 L0,170 L80,170 L80,130 L150,130 L150,180 L230,180 L230,120 L300,120 L300,160 L380,160 L380,140 L450,140 L450,180 L540,180 L540,125 L620,125 L620,165 L700,165 L700,145 L780,145 L780,185 L870,185 L870,135 L950,135 L950,170 L1030,170 L1030,150 L1110,150 L1110,185 L1200,185 L1200,140 L1280,140 L1280,175 L1360,175 L1360,155 L1440,155 L1440,220 Z"/>
+          <path d="M265,120 L265,92 M905,135 L905,107" stroke="#05080F" stroke-width="5"/>
+          <circle cx="265" cy="89" r="4.5" fill="#C1121F" class="blink"/>
+          <circle cx="905" cy="104" r="4.5" fill="#C1121F" class="blink"/>
+          <g id="winFront"></g>
+        </svg>
+      </div>
+      <div class="pendulum" id="pendulum">
+        <div class="webline" id="webline"></div>
+        <div class="spidey-wrap" id="spideyWrap">
+          <svg viewBox="0 0 240 380" aria-hidden="true">
+            <defs>
+              <pattern id="webpat" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+                <path d="M0 0H24M0 0V24" stroke="#14141A" stroke-width="1.5" opacity=".5" fill="none"/>
+              </pattern>
+              <radialGradient id="sglow" cx="50%" cy="45%" r="55%">
+                <stop offset="0%" stop-color="#C1121F" stop-opacity=".32"/>
+                <stop offset="100%" stop-color="#C1121F" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="120" cy="200" rx="100" ry="155" fill="url(#sglow)"/>
+            <path d="M147,220 C141,168 134,98 128,34 L111,36 C117,100 124,168 130,212 Z" fill="#C1121F"/>
+            <path d="M147,220 C141,168 134,98 128,34 L111,36 C117,100 124,168 130,212 Z" fill="url(#webpat)"/>
+            <circle cx="119" cy="28" r="12" fill="#C1121F" stroke="#7F0D16" stroke-width="2.5"/>
+            <path d="M111,24 C115,20 123,20 127,24" stroke="#7F0D16" stroke-width="2" fill="none"/>
+            <path d="M90,210 C72,204 58,199 46,194 L52,180 C66,185 80,191 96,197 Z" fill="#2E6BE6"/>
+            <path d="M46,194 C40,183 36,171 34,159 L48,155 C52,167 56,179 62,189 Z" fill="#C1121F"/>
+            <circle cx="36" cy="156" r="10" fill="#C1121F" stroke="#7F0D16" stroke-width="2.5"/>
+            <path d="M98,294 C94,310 92,324 93,338 L109,338 C109,324 111,310 115,296 Z" fill="#2E6BE6"/>
+            <path d="M121,294 C137,301 151,311 162,321 L152,333 C141,323 129,314 115,306 Z" fill="#2E6BE6"/>
+            <path d="M93,336 L109,336 C107,350 103,362 97,371 L82,365 C88,355 91,345 93,336 Z" fill="#C1121F"/>
+            <path d="M162,321 L152,333 C148,347 147,359 149,371 L135,369 C133,355 135,341 139,329 Z" fill="#C1121F"/>
+            <ellipse cx="89" cy="369" rx="14" ry="8" fill="#C1121F"/>
+            <ellipse cx="142" cy="370" rx="13" ry="8" fill="#C1121F"/>
+            <path d="M96,278 L136,278 L131,296 C121,301 111,301 101,296 Z" fill="#2E6BE6"/>
+            <path d="M86,210 C104,201 128,201 146,210 L136,278 C124,286 108,286 96,278 Z" fill="#C1121F"/>
+            <path d="M86,210 C104,201 128,201 146,210 L136,278 C124,286 108,286 96,278 Z" fill="url(#webpat)"/>
+            <path d="M86,210 C90,232 92,256 96,278 L88,274 C84,252 83,230 84,212 Z" fill="#2E6BE6"/>
+            <path d="M146,210 C142,232 140,256 136,278 L144,274 C148,252 149,230 148,212 Z" fill="#2E6BE6"/>
+            <rect x="105" y="196" width="16" height="18" fill="#7F0D16"/>
+            <ellipse cx="113" cy="162" rx="36" ry="43" transform="rotate(-6 113 162)" fill="#C1121F"/>
+            <ellipse cx="113" cy="162" rx="36" ry="43" transform="rotate(-6 113 162)" fill="url(#webpat)"/>
+            <path d="M77,150 Q85,131 105,135 Q109,149 97,161 Q83,161 77,150 Z" fill="#fff" stroke="#14141A" stroke-width="4"/>
+            <path d="M149,150 Q141,131 121,135 Q117,149 129,161 Q143,161 149,150 Z" fill="#fff" stroke="#14141A" stroke-width="4"/>
+            <ellipse cx="116" cy="242" rx="5" ry="8" fill="#14141A"/>
+            <path d="M111,236 L101,227 M110,242 L99,240 M111,248 L101,253 M121,236 L131,227 M122,242 L133,240 M121,248 L131,253" stroke="#14141A" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M138,214 C142,236 141,258 136,276 C142,268 147,240 146,212 Z" fill="#000" opacity=".18"/>
+          </svg>
+        </div>
+        <div class="thwip" id="thwip">
+          <svg viewBox="0 0 140 100" aria-hidden="true">
+            <polygon points="70,2 82,22 104,10 100,34 124,30 112,50 136,56 114,66 122,88 100,80 96,100 82,82 70,98 58,82 44,100 40,80 18,88 26,66 4,56 28,50 16,30 40,34 36,10 58,22" fill="#F5B301" stroke="#14141A" stroke-width="3" stroke-linejoin="round"/>
+            <text x="70" y="63" text-anchor="middle" font-family="Anton,sans-serif" font-size="23" letter-spacing="1" fill="#14141A">THWIP!</text>
+          </svg>
+        </div>
+      </div>
+      <div class="d-hero" id="dHero" dir="rtl">
+        <span class="kicker">راهنمای فارسی کامیک‌ها</span>
+        <h1>Friendly Neighborhood Community</h1>
+        <p>معرفی مهم‌ترین سری‌های کامیک اسپایدرمن — خلاصه، تاریخ انتشار، ارتباط با دنیای عنکبوتی و شخصیت‌ها.<br>فقط معرفی؛ هیچ دانلود یا فایلی ارائه نمی‌شود.</p>
+      </div>
+      <div class="d-hint" id="dHint" dir="rtl">
+        <span>به پایین اسکرول کنید</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <button id="themeBtn" class="theme-btn d-theme" aria-label="تغییر حالت روشن / تیره">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      </button>
+    </div>
+  </section>
 
-  <header class="hero">
-    <button id="themeBtn" class="theme-btn" aria-label="تغییر حالت روشن / تیره">
-      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
-    </button>
-    <svg class="web" viewBox="0 0 64 64" fill="none" stroke="#C1121F" stroke-width="2">
-      <circle cx="32" cy="32" r="6"/>
-      <path d="M32 2v60M2 32h60M11 11l42 42M53 11L11 53"/>
-      <path d="M32 12c8 8 8 32 0 40M32 12c-8 8-8 32 0 40M12 32c8-8 32-8 40 0M12 32c8 8 32 8 40 0"/>
-    </svg>
-    <span class="kicker">راهنمای فارسی کامیک‌ها</span>
-    <h1 class="en-title">Friendly Neighborhood Community</h1>
-    <p class="sub">معرفی مهم‌ترین سری‌های کامیک اسپایدرمن — خلاصه، تاریخ انتشار، ارتباط با دنیای عنکبوتی و شخصیت‌ها.<br>فقط معرفی؛ هیچ دانلود یا فایلی ارائه نمی‌شود.</p>
-  </header>
 
   <div class="controls">
     <div class="search-row">
@@ -1222,5 +1338,73 @@ var covers = COVERS;
 render();
 })();
 </script>
+
+<script>
+(function(){
+  var sec=document.getElementById('descent'); if(!sec) return;
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pendulum=document.getElementById('pendulum'),
+      webline=document.getElementById('webline'),
+      spidey=document.getElementById('spideyWrap'),
+      hero=document.getElementById('dHero'),
+      hint=document.getElementById('dHint'),
+      thwip=document.getElementById('thwip'),
+      cityF=document.getElementById('cityFront'),
+      cityB=document.getElementById('cityBack'),
+      moon=document.getElementById('dMoon');
+  /* stars */
+  var st=document.getElementById('dStars'), i, el, sd=1234567;
+  function rnd(){ sd=(sd*1664525+1013904223)>>>0; return sd/4294967296; }
+  for(i=0;i<70;i++){ el=document.createElement('i');
+    el.style.left=(rnd()*100)+'%'; el.style.top=(rnd()*68)+'%';
+    var sz=(1+rnd()*1.8).toFixed(1); el.style.width=sz+'px'; el.style.height=sz+'px';
+    el.style.animationDelay=(rnd()*3.2).toFixed(2)+'s'; el.style.opacity=(0.35+rnd()*0.55).toFixed(2);
+    st.appendChild(el); }
+  /* windows */
+  var win=document.getElementById('winFront'), ns='http://www.w3.org/2000/svg';
+  var bands=[[80,150,130,172],[230,300,122,172],[540,620,128,178],[870,950,138,178],[1200,1280,143,178]];
+  bands.forEach(function(b){
+    for(var x=b[0]+6;x<b[1]-6;x+=20){ for(var y=b[2]+6;y<b[3]-8;y+=18){
+      if(rnd()<0.55){ var r=document.createElementNS(ns,'rect');
+        r.setAttribute('x',x); r.setAttribute('y',y); r.setAttribute('width',7); r.setAttribute('height',10);
+        r.setAttribute('fill','#F5B301'); r.setAttribute('opacity',(0.3+rnd()*0.5).toFixed(2));
+        win.appendChild(r); } } }
+  });
+  function sstep(a,b,x){ var t=Math.min(1,Math.max(0,(x-a)/(b-a))); return t*t*(3-2*t); }
+  function eob(t){ var c=1.70158; return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2); }
+  function render(){
+    var r=sec.getBoundingClientRect(), total=r.height-window.innerHeight;
+    var p=Math.min(1,Math.max(0,-r.top/Math.max(1,total)));
+    if(RM) p=1;
+    var dropP=sstep(0.08,0.72,p), vh=window.innerHeight/100;
+    var dropVh=-46+dropP*104;
+    var webPx=Math.max(0,dropVh*vh+36);
+    webline.style.transform='scaleY('+(webPx/(110*vh)).toFixed(4)+')';
+    spidey.style.transform='translate(-50%,'+dropVh.toFixed(2)+'vh)';
+    var sway=Math.sin(dropP*Math.PI*3.5)*6*(1-dropP*0.75);
+    var drift=-14*sstep(0.88,1,p);
+    pendulum.style.transform='translateX('+drift.toFixed(2)+'vw) rotate('+sway.toFixed(2)+'deg)';
+    var ts=0;
+    if(p>0.03&&p<0.30){ var t=(p-0.03)/0.27; ts=eob(Math.min(1,t*1.15))*(1-sstep(0.65,1,t)); }
+    ts=Math.max(0,ts);
+    thwip.style.transform='scale('+ts.toFixed(3)+') rotate(-8deg)';
+    thwip.style.opacity=ts>0.02?'1':'0';
+    var heroP=sstep(0.60,0.88,p);
+    hero.style.opacity=heroP.toFixed(3);
+    hero.style.transform='translateY('+((1-heroP)*46).toFixed(1)+'px)';
+    hint.style.opacity=(1-sstep(0,0.05,p)).toFixed(3);
+    cityF.style.transform='translateY('+(p*30).toFixed(1)+'px)';
+    cityB.style.transform='translateY('+(p*14).toFixed(1)+'px)';
+    moon.style.transform='translateY('+(p*-24).toFixed(1)+'px)';
+    ticking=false;
+  }
+  var ticking=false;
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(render); } }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  render();
+})();
+</script>
+
 </body>
 </html>
